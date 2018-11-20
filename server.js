@@ -43,6 +43,10 @@ app.get("/api/piece/:id", async function(req,res,next){
 
     console.log(pieceJson)
 
+    return res.json({
+        piece: pieceJson
+    })
+
 })
 
 app.get("/api/pieces", async function(req,res,next){
@@ -56,16 +60,36 @@ app.get("/api/pieces", async function(req,res,next){
     })
 
 
-    console.log(piecesArray)
+    return res.json({
+        pieces: piecesArray
+    })
 
 })
 
 app.put("/api/piece/:id", async function(req,res,next){
 
     var result = await piece.update( req.body , { where: { id: req.params.id }, fields: Object.keys(req.body), returning: true } )
-    var updated = result[1][0].get({plain: true})
+   
+    // checks to see if updated returns the json record 
+    if(result && result.length && result[1]){
+
+        var arrayOfUpdated = result[1]
+        var theUpdated = arrayOfUpdated[0]
+        var jsonOfUpdated = null
+
+        if(theUpdated){
+            jsonOfUpdated = theUpdated.get({plain: true})
+        }
+        if(jsonOfUpdated){
+
+            // sends the newly updated object back to the front end
+            return res.json({updated: jsonOfUpdated})
+        }
+    }
+    
 
 })
+
 app.delete("/api/piece", function(req,res,next){
 
 })
