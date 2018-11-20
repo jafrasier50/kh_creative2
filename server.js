@@ -3,25 +3,24 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
+
+// this imports the sequelize models from the models folder
 const models = require('./models')
+
+// formats each incoming req.body into a json object, from both of these post request types
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// this selects the "piece" model off of the models variable, using "object destructuring" syntax
 const { piece } = models
-// API calls
-// app.get('/api/hello', (req, res) => {
-//   res.send({ express: 'Hello From Express' });
-// });
-// app.post('/api/world', (req, res) => {
-//   console.log(req.body);
-//   res.send(
-//     `I received your POST request. This is what you sent me: ${req.body.post}`,
-//   );
-// });
 
+//Notice the word async before the callback function of each route, this allows us to use the await keyword inside of the function for async calls. 
+//await pauses the execution of the function and waits for the result to come back. Once the result has come back, it assigns 
+//the result object to the variable where the await was called. Then it continues on with the rest of the function.
 
+// creates on "piece", uses async/await syntax for the sequelize query. Returns result to front end as json
 app.post("/api/piece", async function(req,res,next){
-    console.log(req.body)
+    
     const { title, description, category, img_url, availability, price } = req.body
     var result = await piece.create({
         title, description, category, img_url, availability, price
@@ -34,9 +33,6 @@ app.post("/api/piece", async function(req,res,next){
 
 })
 
-//returns a single piece, notice the word async before the function, this allows us to use the await keyword for async calls. 
-//await pauses the execution of the function and waits for the result to come back. once the result has come back, it assigns 
-//the result object to the variable where the await was called. Then it continues on with the rest of the function.
 app.get("/api/piece/:id", async function(req,res,next){
 
     const { id } = req.params
@@ -46,8 +42,6 @@ app.get("/api/piece/:id", async function(req,res,next){
     }) 
 
     var pieceJson = queryResult.get({plain: true})
-
-    console.log(pieceJson)
 
     return res.json({
         piece: pieceJson
@@ -76,7 +70,7 @@ app.put("/api/piece/:id", async function(req,res,next){
 
     var result = await piece.update( req.body , { where: { id: req.params.id }, fields: Object.keys(req.body), returning: true } )
    
-    // checks to see if updated returns the json record 
+    // gets the updated json record from the result 
     if(result && result.length && result[1]){
 
         var arrayOfUpdated = result[1]
@@ -107,10 +101,9 @@ app.delete("/api/piece/:id", async function(req,res,next){
         return res.json({removed:false})
     }
 
-    
-
 })
 
+// for production
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
@@ -119,4 +112,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+
+// listens on specified port
 app.listen(port, () => console.log(`Listening on port ${port}`));
