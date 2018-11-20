@@ -60,7 +60,10 @@ app.get("/api/pieces", async function(req,res,next){
 
 })
 
-app.put("/api/piece", function(req,res,next){
+app.put("/api/piece/:id", async function(req,res,next){
+
+    var result = await piece.update( req.body , { where: { id: req.params.id }, fields: Object.keys(req.body), returning: true } )
+    var updated = result[1][0].get({plain: true})
 
 })
 app.delete("/api/piece", function(req,res,next){
