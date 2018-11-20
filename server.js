@@ -20,12 +20,18 @@ const { piece } = models
 // });
 
 
-app.post("/api/piece", function(req,res,next){
+app.post("/api/piece", async function(req,res,next){
     console.log(req.body)
     const { title, description, category, img_url, availability, price } = req.body
-    piece.create({
+    var result = await piece.create({
         title, description, category, img_url, availability, price
     })
+
+    var created = result.get({plain: true})
+    return res.json({
+        created: created
+    })     
+
 })
 
 //returns a single piece, notice the word async before the function, this allows us to use the await keyword for async calls. 
@@ -90,7 +96,18 @@ app.put("/api/piece/:id", async function(req,res,next){
 
 })
 
-app.delete("/api/piece", function(req,res,next){
+app.delete("/api/piece/:id", async function(req,res,next){
+
+    var numberOfDestroyed = await piece.destroy({where:{id: req.params.id}})
+
+    if(numberOfDestroyed == 1) {
+        return res.json({removed:true})
+    }
+    else {
+        return res.json({removed:false})
+    }
+
+    
 
 })
 
