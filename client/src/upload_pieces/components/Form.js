@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from "axios"
 
 class UploadPieceForm extends Component {  
     constructor() {
@@ -10,8 +11,7 @@ class UploadPieceForm extends Component {
         category: "",
         img_url: "",
         availability: "",
-        price: "",
-        image: ""
+        price: ""
     }
 
     handleChange = (e) => {
@@ -35,12 +35,15 @@ class UploadPieceForm extends Component {
     
         const file = await res.json()
         console.log(file)
-        this.setState({image: file.secure_url})
+        this.setState({img_url: file.secure_url})
     }
 
-    formSubmit = (e) => {
+    formSubmit = async e => {
         e.preventDefault()
         console.log("string",this.state)
+        
+        var result = await axios.post("api/piece",this.state)
+        console.log(result)
     }
     render () {
         return (
@@ -49,10 +52,9 @@ class UploadPieceForm extends Component {
                    <input type="text" onChange={this.handleChange} name="title" placeholder="enter title" value={this.state.title}/>
                    <textarea onChange={this.handleChange} name="description" placeholder="enter description" value={this.state.description}/>
                    <input onChange={this.handleChange} name="category" placeholder="enter category" value={this.state.category}/>
-                   <input onChange={this.handleChange} name="img_url" placeholder="enter img_url" value={this.state.img_url}/>
                    <input onChange={this.handleChange} name="availability" placeholder="enter availability" value={this.state.availability}/>
                    <input onChange={this.handleChange} name="price" placeholder="enter price" value={this.state.price}/>
-                   <input onChange={this.uploadFile} type="file" id="file" name="image" placeholder="Upload an Image"/>
+                   <input onChange={this.uploadFile} type="file" id="file" placeholder="Upload an Image"/>
                    <input type="submit"/>
                 </form> 
             </div>
