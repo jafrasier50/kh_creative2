@@ -30,7 +30,10 @@ class UploadPieceForm extends Component {
         img_url: "",
         availability: "",
         price: "",
-        renderedPieces: []
+        renderedPieces: [],
+        uploading: false,
+        errorUploading: false,
+        uploaded: false
     }
 
     handleChange = (e) => {
@@ -65,10 +68,11 @@ class UploadPieceForm extends Component {
             category,
             img_url,
             availability,
-            price
+            price,
+            id
         } = info
 
-        return (<StyledPiece>
+        return (<StyledPiece key = {id} >
         <h5>{title}</h5>
         <p>{description}</p>
         <img src={img_url}/>
@@ -84,6 +88,11 @@ class UploadPieceForm extends Component {
         const data = new FormData()
         data.append('file', files[0])
         data.append('upload_preset', 'frasier')
+        this.setState({
+            uploading: true,
+            errorUploading: false,
+            uploaded: false
+        })
 
         const res = await fetch('https://api.cloudinary.com/v1_1/frasier/image/upload', {
           method: 'POST',
@@ -91,8 +100,13 @@ class UploadPieceForm extends Component {
         })
     
         const file = await res.json()
-        console.log(file)
-        this.setState({img_url: file.secure_url})
+        if (file && file.secure_url) {
+            this.setState({img_url: file.secure_url, uploading: false, errorUploading: false, uploaded: true})
+
+        }
+        else{
+            this.setState({uploading: false, errorUploading: true, uploaded: false})
+        }
     }
 
     formSubmit = async e => {
@@ -126,17 +140,19 @@ class UploadPieceForm extends Component {
     }
 
     render () {
+        const {uploading,uploaded,errorUploading} = this.state
         return (
             <div>
+                {uploading ? <p>Uploading Image...</p>:
                 <form onSubmit={this.formSubmit}>   
                    <input type="text" onChange={this.handleChange} name="title" placeholder="enter title" value={this.state.title}/>
                    <textarea onChange={this.handleChange} name="description" placeholder="enter description" value={this.state.description}/>
                    <input onChange={this.handleChange} name="category" placeholder="enter category" value={this.state.category}/>
                    <input onChange={this.handleChange} name="availability" placeholder="enter availability" value={this.state.availability}/>
                    <input onChange={this.handleChange} name="price" placeholder="enter price" value={this.state.price}/>
-                   <input onChange={this.uploadFile} type="file" id="file" placeholder="Upload an Image"/>
-                   <input type="submit"/>
-                </form> 
+                   {uploaded?<p>Upload Successful!</p>:<input onChange={this.uploadFile} type="file" id="file" placeholder="Upload an Image"/>}
+                   {!errorUploading ? <input type="submit"/>:<p>Error Uploading Image. Try again.</p>}
+        </form>}
                 {this.state.renderedPieces}
             </div>
         )
