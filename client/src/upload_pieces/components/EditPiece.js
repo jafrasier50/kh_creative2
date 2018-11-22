@@ -1,37 +1,34 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import axios from "axios"
-import Piece from "./Piece"
+
+const StyledForm = styled.div`
+
+    background-color: lightgray;
+    padding: 15px;
+    max-width: 200px;
+    margin: 10px;
+    img{
+        max-width: 150px;
+    }
+`
 
 class UploadPieceForm extends Component {  
-    constructor() {
-        super()
-        this.getPieces()
-    }
-    state = {
-        title: "",
-        description: "",
-        category: "",
-        img_url: "",
-        availability: "",
-        price: "",
-        renderedPieces: [],
-        uploading: false,
-        errorUploading: false,
-        uploaded: false,
-        editing: false
-    }
-
-    onEdit = () => {
-        this.setState({
-            editing: true
-        })
-    }
-
-    onDoneEditing = () => {
-    
-        this.setState({
-            editing: false
-        })
+    constructor(props) {
+        super(props)
+        let pieceData = this.props.pieceData
+        this.state =  {
+        
+            title: pieceData.title,
+            description: pieceData.description,
+            category: pieceData.category,
+            img_url: pieceData.img_url,
+            availability: pieceData.availability,
+            price: pieceData.price,
+            uploading: false,
+            errorUploading: false,
+            uploaded: false
+        }
     }
 
     handleChange = (e) => {
@@ -39,28 +36,6 @@ class UploadPieceForm extends Component {
         let changed = {}
         changed[e.target.name] = e.target.value
         this.setState(changed)
-    }
-
-    getPieces = async () => {
-        
-        let result = await axios.get("api/pieces")
-        let pieces = result.data.pieces
-
-
-        if(pieces && pieces.length){
-            let renderedPiecesArray = []
-            pieces.forEach((piece) => {
-                renderedPiecesArray.push(this.renderPiece(piece))
-            
-            } )
-
-            this.setState({renderedPieces: renderedPiecesArray})
-        }
-    
-    }
-    
-    renderPiece = (info) => {
-        return <Piece onEdit = { this.onEdit } onDoneEditing = { this.onDoneEditing } pieceData = {info}/>
     }
 
     uploadFile = async e => {
@@ -104,7 +79,7 @@ class UploadPieceForm extends Component {
 
         } = this.state
         
-        let result = await axios.post("api/piece",{
+        let result = await axios.put(`api/piece/${this.props.pieceData.id}`,{
             title,
             description,
             category,
@@ -112,20 +87,18 @@ class UploadPieceForm extends Component {
             availability,
             price
         } )
+        if (result.data && result.data.updated) {
+            this.props.onUpdate(result.data.updated)
+        }
 
-        var newRenderedPieces = [...this.state.renderedPieces ]
-
-        newRenderedPieces.push(this.renderPiece(result.data.created))
-       
-        this.setState({renderedPieces: newRenderedPieces })
     }
 
     render () {
-        const {uploading,uploaded,errorUploading,editing,title,description,category,availability,price} = this.state
+        const {uploading,uploaded,errorUploading,title,description,category,availability,price} = this.state
         return (
             <div>
-                {uploading ? <p>Uploading Image...</p>: null}
-                {!editing? <form onSubmit={this.formSubmit}>   
+                {uploading ? <p>Uploading Image...</p>:
+                <form onSubmit={this.formSubmit}>   
                    <input type="text" onChange={this.handleChange} name="title" placeholder="enter title" value={title}/>
                    <textarea onChange={this.handleChange} name="description" placeholder="enter description" value={description}/>
                    <input onChange={this.handleChange} name="category" placeholder="enter category" value={category}/>
@@ -133,8 +106,8 @@ class UploadPieceForm extends Component {
                    <input onChange={this.handleChange} name="price" placeholder="enter price" value={price}/>
                    {uploaded?<p>image upload successful! Ready to submit when you are...</p>:<input onChange={this.uploadFile} type="file" id="file" placeholder="Upload an Image"/>}
                    {!errorUploading ? <input type="submit"/>:<p>Error Uploading Image. Try again.</p>}
-                </form> : null}
-                {this.state.renderedPieces}
+        </form>}
+                
             </div>
         )
     }
