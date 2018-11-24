@@ -46,10 +46,20 @@ class Piece extends Component {
        
     }
 
+    onDelete = () => {
+        this.props.onDoneEditing()
+    }
+
     clickedEdit = () => {
         this.setState({editing: true})
         this.props.onEdit()
     }
+    
+    clickedDelete = () => {
+        this.props.onDelete()
+        this.deletePiece()
+    }
+
     render () {
         const {
             title,
@@ -63,7 +73,7 @@ class Piece extends Component {
         } = this.state
         return (
 
-        this.state.editing? <EditPiece onUpdate = {this.onUpdate} pieceData = {this.props.pieceData}/> : <StyledPiece key = {id} >
+        this.state.editing? <EditPiece onDelete = {this.onDelete} onUpdate = {this.onUpdate} pieceData = {this.props.pieceData}/> : <StyledPiece key = {id} >
             <h5>{title}</h5>
             <p>{description}</p>
             <img src={img_url}/>
@@ -71,7 +81,6 @@ class Piece extends Component {
             <br/>
             <strong>Price: {price}</strong>
             {this.state.editing? null: <button onClick = {this.clickedEdit}>Edit</button>}
-
         </StyledPiece>
         )
     }

@@ -27,7 +27,8 @@ class UploadPieceForm extends Component {
             price: pieceData.price,
             uploading: false,
             errorUploading: false,
-            uploaded: false
+            uploaded: false,
+            deleted: false
         }
     }
 
@@ -92,10 +93,20 @@ class UploadPieceForm extends Component {
         }
 
     }
+    deletePiece = async e => {
+        e.preventDefault()        
+        let result = await axios.delete(`api/piece/${this.props.pieceData.id}`)
+        if (result.data && result.data.removed) {
+            this.props.onDelete()
+            this.setState({deleted: true})
+        }
 
+        console.log(result)
+
+    }
     render () {
-        const {uploading,uploaded,errorUploading,title,description,category,availability,price} = this.state
-        return (
+        const {uploading,uploaded,errorUploading,title,description,category,availability,price,deleted} = this.state
+        return (!deleted ? 
             <div>
                 {uploading ? <p>Uploading Image...</p>:
                 <form onSubmit={this.formSubmit}>   
@@ -106,9 +117,11 @@ class UploadPieceForm extends Component {
                    <input onChange={this.handleChange} name="price" placeholder="enter price" value={price}/>
                    {uploaded?<p>image upload successful! Ready to submit when you are...</p>:<input onChange={this.uploadFile} type="file" id="file" placeholder="Upload an Image"/>}
                    {!errorUploading ? <input type="submit"/>:<p>Error Uploading Image. Try again.</p>}
+                   <button onClick = {this.deletePiece}>Delete</button>
+
         </form>}
                 
-            </div>
+            </div> :null
         )
     }
 }

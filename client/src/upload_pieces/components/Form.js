@@ -60,7 +60,8 @@ class UploadPieceForm extends Component {
     }
     
     renderPiece = (info) => {
-        return <Piece onEdit = { this.onEdit } onDoneEditing = { this.onDoneEditing } pieceData = {info}/>
+        return <Piece onDoneEditing = { this.onDoneEditing } onEdit = { this.onEdit } onDoneEditing = { this.onDoneEditing } pieceData = {info}/>
+    
     }
 
     uploadFile = async e => {
