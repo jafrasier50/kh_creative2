@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 if (process.env.NODE_ENV == 'development') {
     require('dotenv').config()
 }
-
+console.log(process.env.NODE_ENV)
 // this imports the sequelize models from the models folder
 const models = require('./models')
 
@@ -61,10 +61,9 @@ app.use((req, res, next) => {
   
     // parse login and piecesPass from headers
     const b64auth = (req.headers.authorization || '').split(' ')[1] || ''
-    const [piecesPass] = new Buffer(b64auth, 'base64').toString().split(':')
   
     // Verify login and piecesPass are set and correct
-    if (!piecesPass || piecesPass !== auth.piecesPass) {
+    if (!b64auth || b64auth !== auth.piecesPass) {
     //   res.set('WWW-Authenticate', 'Basic realm="401"') // change this
       res.status(401).send('Authentication required.') // custom message
       return
@@ -76,7 +75,7 @@ app.use((req, res, next) => {
   
 })
 
-app.get("/auth", function(req, res, next){
+app.get("/api/auth", function(req, res, next){
     res.json({authenticated: true})
 })
 
