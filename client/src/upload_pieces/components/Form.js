@@ -32,6 +32,10 @@ class UploadPieceForm extends Component {
         this.setState({
             editing: false
         })
+
+       this.getPieces()
+       console.log("gettingPieces")
+
     }
 
     handleChange = (e) => {
@@ -53,7 +57,7 @@ class UploadPieceForm extends Component {
                 renderedPiecesArray.push(this.renderPiece(piece))
             
             } )
-
+            console.log("got Pieces!")
             this.setState({renderedPieces: renderedPiecesArray})
         }
     

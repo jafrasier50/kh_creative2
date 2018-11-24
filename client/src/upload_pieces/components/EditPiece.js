@@ -90,6 +90,8 @@ class UploadPieceForm extends Component {
         } )
         if (result.data && result.data.updated) {
             this.props.onUpdate(result.data.updated)
+            console.log ({...result.data.updated})
+            this.setState({...result.data.updated})
         }
 
     }
@@ -105,7 +107,7 @@ class UploadPieceForm extends Component {
 
     }
     render () {
-        const {uploading,uploaded,errorUploading,title,description,category,availability,price,deleted} = this.state
+        const {uploading,uploaded,errorUploading,title,description,category,availability,price,deleted, saved} = this.state
         return (!deleted ? 
             <div>
                 {uploading ? <p>Uploading Image...</p>:

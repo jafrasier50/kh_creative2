@@ -43,6 +43,7 @@ class Piece extends Component {
     onUpdate = (newData) => {
 
         this.setState({...newData, editing: false })
+        this.props.onDoneEditing()
        
     }
 
