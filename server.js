@@ -4,6 +4,11 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 
+
+if (process.env.NODE_ENV == 'development') {
+    require('dotenv').config()
+}
+
 // this imports the sequelize models from the models folder
 const models = require('./models')
 
@@ -13,25 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // this selects the "piece" model off of the models variable, using "object destructuring" syntax
 const { piece } = models
-
-//Notice the word async before the callback function of each route, this allows us to use the await keyword inside of the function for async calls. 
-//await pauses the execution of the function and waits for the result to come back. Once the result has come back, it assigns 
-//the result object to the variable where the await was called. Then it continues on with the rest of the function.
-
-// creates on "piece", uses async/await syntax for the sequelize query. Returns result to front end as json
-app.post("/api/piece", async function(req,res,next){
-    
-    const { title, description, category, img_url, availability, price } = req.body
-    var result = await piece.create({
-        title, description, category, img_url, availability, price
-    })
-
-    var created = result.get({plain: true})
-    return res.json({
-        created: created
-    })     
-
-})
 
 app.get("/api/piece/:id", async function(req,res,next){
 
@@ -63,6 +49,53 @@ app.get("/api/pieces", async function(req,res,next){
     return res.json({
         pieces: piecesArray
     })
+
+})
+
+app.use((req, res, next) => {
+
+    // -----------------------------------------------------------------------
+    // authentication middleware
+  
+    const auth = { piecesPass: process.env.PIECES_PASS } // change this
+  
+    // parse login and piecesPass from headers
+    const b64auth = (req.headers.authorization || '').split(' ')[1] || ''
+    const [piecesPass] = new Buffer(b64auth, 'base64').toString().split(':')
+  
+    // Verify login and piecesPass are set and correct
+    if (!piecesPass || piecesPass !== auth.piecesPass) {
+    //   res.set('WWW-Authenticate', 'Basic realm="401"') // change this
+      res.status(401).send('Authentication required.') // custom message
+      return
+    }
+  
+    // -----------------------------------------------------------------------
+    // Access granted...
+    next()
+  
+})
+
+app.get("/auth", function(req, res, next){
+    res.json({authenticated: true})
+})
+
+//Notice the word async before the callback function of each route, this allows us to use the await keyword inside of the function for async calls. 
+//await pauses the execution of the function and waits for the result to come back. Once the result has come back, it assigns 
+//the result object to the variable where the await was called. Then it continues on with the rest of the function.
+
+// creates on "piece", uses async/await syntax for the sequelize query. Returns result to front end as json
+app.post("/api/piece", async function(req,res,next){
+    
+    const { title, description, category, img_url, availability, price } = req.body
+    var result = await piece.create({
+        title, description, category, img_url, availability, price
+    })
+
+    var created = result.get({plain: true})
+    return res.json({
+        created: created
+    })     
 
 })
 
