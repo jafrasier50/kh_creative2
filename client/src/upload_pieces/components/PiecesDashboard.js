@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import axios from "axios"
 import Piece from "./Piece"
+import Cookies from 'universal-cookie'
+const cookies = new Cookies()
 
-class UploadPieceForm extends Component {  
+class PiecesDashboard extends Component {  
     constructor() {
         super()
         this.getPieces()
@@ -96,33 +98,47 @@ class UploadPieceForm extends Component {
     }
 
     formSubmit = async e => {
+
         e.preventDefault()
+
+        let piecesPassCookie = cookies.get('pieces_secret')
+
+        if(piecesPassCookie){
       
-        const {
+            const {
 
-            title,
-            description,
-            category,
-            img_url,
-            availability,
-            price
+                title,
+                description,
+                category,
+                img_url,
+                availability,
+                price
 
-        } = this.state
+            } = this.state
+            
+            let result = await axios({ 
+                method: 'POST',
+                url: 'api/piece',
+                data: {
+                    title,
+                    description,
+                    category,
+                    img_url,
+                    availability,
+                    price
+                },
+                headers: { Authorization: 'Basic ' + piecesPassCookie,
+            
+                
+            } })
+
+            var newRenderedPieces = [...this.state.renderedPieces ]
+
+            newRenderedPieces.push(this.renderPiece(result.data.created))
         
-        let result = await axios.post("api/piece",{
-            title,
-            description,
-            category,
-            img_url,
-            availability,
-            price
-        } )
+            this.setState({renderedPieces: newRenderedPieces })
 
-        var newRenderedPieces = [...this.state.renderedPieces ]
-
-        newRenderedPieces.push(this.renderPiece(result.data.created))
-       
-        this.setState({renderedPieces: newRenderedPieces })
+        }
     }
 
     render () {
@@ -145,4 +161,4 @@ class UploadPieceForm extends Component {
     }
 }
 
-export default UploadPieceForm
+export default PiecesDashboard

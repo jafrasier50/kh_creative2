@@ -1,17 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import EditPiece from "./EditPiece"
+import { StyledPiece } from "./styled_components/StyledPiece"
 
-const StyledPiece = styled.div`
-
-    background-color: lightgray;
-    padding: 15px;
-    max-width: 200px;
-    margin: 10px;
-    img{
-        max-width: 150px;
-    }
-`
 class Piece extends Component {
     constructor(props) {
         super(props)

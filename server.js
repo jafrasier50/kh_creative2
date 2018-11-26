@@ -76,7 +76,7 @@ app.use((req, res, next) => {
 })
 
 app.get("/api/auth", function(req, res, next){
-    res.json({authenticated: true})
+    res.json({secret: process.env.PIECES_PASS})
 })
 
 //Notice the word async before the callback function of each route, this allows us to use the await keyword inside of the function for async calls. 

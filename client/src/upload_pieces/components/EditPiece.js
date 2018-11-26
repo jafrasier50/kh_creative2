@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import axios from "axios"
+import axios from 'axios'
+import Cookies from 'universal-cookie'
+const cookies = new Cookies()
 
 const StyledForm = styled.div`
 
@@ -68,8 +70,12 @@ class UploadPieceForm extends Component {
 
     formSubmit = async e => {
         e.preventDefault()
-      
-        const {
+
+        let piecesPassCookie = cookies.get('pieces_secret')
+
+        if( piecesPassCookie ){
+
+            const {
 
             title,
             description,
@@ -78,20 +84,29 @@ class UploadPieceForm extends Component {
             availability,
             price
 
-        } = this.state
-        
-        let result = await axios.put(`api/piece/${this.props.pieceData.id}`,{
-            title,
-            description,
-            category,
-            img_url,
-            availability,
-            price
-        } )
-        if (result.data && result.data.updated) {
-            this.props.onUpdate(result.data.updated)
-            console.log ({...result.data.updated})
-            this.setState({...result.data.updated})
+            } = this.state
+            
+            let result = await axios({
+
+                url: `api/piece/${this.props.pieceData.id}`,
+                method: 'PUT',
+                data: {
+                    title,
+                    description,
+                    category,
+                    img_url,
+                    availability,
+                    price
+                },
+                headers: { Authorization: 'Basic ' + piecesPassCookie}
+            })
+
+            if (result.data && result.data.updated) {
+                this.props.onUpdate(result.data.updated)
+                console.log ({...result.data.updated})
+                this.setState({...result.data.updated})
+            }
+
         }
 
     }

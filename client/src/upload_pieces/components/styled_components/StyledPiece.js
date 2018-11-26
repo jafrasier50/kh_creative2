@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default const StyledPiece = styled.div`
+export const StyledPiece = styled.div`
 
     background-color: lightgray;
     padding: 15px;
