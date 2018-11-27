@@ -15,7 +15,7 @@ class PiecesDashboardView extends Component {
         const { loggedIn } = this.props
         return (
             <div>
-                {loggedIn? <PiecesDashboard/> : <p>fucking sign in Kelly</p>}
+                {loggedIn? <PiecesDashboard loggedIn={this.props.loggedIn}/> : <p>fucking sign in Kelly</p>}
             </div>
         )
     }

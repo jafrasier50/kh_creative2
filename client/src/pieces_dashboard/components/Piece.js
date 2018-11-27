@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import EditPiece from "./EditPiece"
 import { StyledPiece } from "./styled_components/StyledPiece"
+import { checkAuth } from "../../auth/checkAuth"
 
 class Piece extends Component {
     constructor(props) {
@@ -72,7 +73,7 @@ class Piece extends Component {
             <strong>Availability: {availability}</strong>
             <br/>
             <strong>Price: {price}</strong>
-            {this.state.editing? null: <button onClick = {this.clickedEdit}>Edit</button>}
+            {this.state.editing || !this.props.loggedIn? null: <button onClick = {this.clickedEdit}>Edit</button>}
         </StyledPiece>
         )
     }

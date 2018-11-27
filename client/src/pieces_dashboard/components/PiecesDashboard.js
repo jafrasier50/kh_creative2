@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import axios from "axios"
-import Piece from "./Piece"
+import axios from 'axios'
+import Piece from './Piece'
 import Cookies from 'universal-cookie'
 const cookies = new Cookies()
 
@@ -66,7 +66,7 @@ class PiecesDashboard extends Component {
     }
     
     renderPiece = (info) => {
-        return <Piece onDoneEditing = { this.onDoneEditing } onEdit = { this.onEdit } onDoneEditing = { this.onDoneEditing } pieceData = {info}/>
+        return <Piece loggedIn={this.props.loggedIn} onDoneEditing = { this.onDoneEditing } onEdit = { this.onEdit } onDoneEditing = { this.onDoneEditing } pieceData = {info}/>
     
     }
 

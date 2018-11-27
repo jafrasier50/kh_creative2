@@ -14,7 +14,7 @@ class Navbar extends Component {
   logout = (e) => {
     e.preventDefault()
     cookies.remove('pieces_secret')
-    this.props.history.replace("/login")
+    this.props.history.replace("/pieces")
 
   }
 
@@ -28,7 +28,7 @@ class Navbar extends Component {
     const currentRoute = window.location.pathname
     return (
       <div>
-        { loggedIn? <a href="pieces_dashboard">Kelly's Dashboard</a> : null }
+        { loggedIn && currentRoute != "/pieces_dashboard" ? <a href="pieces_dashboard">Kelly's Dashboard</a> : null }
         { !loggedIn && currentRoute != '/login'? <button onClick={this.login}>login</button> : null }
         { loggedIn? <button onClick={this.logout}>logout</button> : null }
         
