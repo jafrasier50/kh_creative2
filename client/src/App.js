@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
-import UploadPieceView from './upload_pieces/components/View'
+import Navbar from './navbar/components/Navbar'
+import PiecesDashboardView from './pieces_dashboard/components/View'
+import Login from './auth/Login'
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <UploadPieceView/>
-      </div>
+      <Router>
+        <div className="App">
+        <Navbar />
+        <Route exact path="/pieces_dashboard" component={PiecesDashboardView} />
+        <Route exact path="/login" component={Login} />
+        </div>
+      </Router>
     );
   }
 }
