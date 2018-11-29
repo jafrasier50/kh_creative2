@@ -28,8 +28,8 @@ class Navbar extends Component {
     const currentRoute = window.location.pathname
     return (
       <div>
-        { loggedIn && currentRoute != "/pieces_dashboard" ? <a href="pieces_dashboard">Kelly's Dashboard</a> : null }
-        { !loggedIn && currentRoute != '/login'? <button onClick={this.login}>login</button> : null }
+        { loggedIn && currentRoute !== "/pieces_dashboard" ? <a href="pieces_dashboard">Kelly's Dashboard</a> : null }
+        { !loggedIn && currentRoute !== '/login'? <button onClick={this.login}>login</button> : null }
         { loggedIn? <button onClick={this.logout}>logout</button> : null }
         
       </div>
