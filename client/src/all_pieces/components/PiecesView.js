@@ -3,8 +3,7 @@ import axios from 'axios'
 import Piece from '../../pieces_dashboard/components/Piece'
 
 class PiecesView extends Component {
-
-  constructor() {
+  constructor () {
     super()
     this.getPieces()
     this.state = {
@@ -13,30 +12,31 @@ class PiecesView extends Component {
   }
 
   getPieces = async () => {
-        
-    let result = await axios.get("api/pieces")
+    let result = await axios.get('api/pieces')
     let pieces = result.data.pieces
 
-
-    if(pieces && pieces.length){
-        let renderedPiecesArray = []
-        pieces.forEach((piece) => {
-            renderedPiecesArray.push(this.renderPiece(piece))
-        
-        } )
-        console.log("got Pieces!")
-        this.setState({renderedPieces: renderedPiecesArray})
+    if (pieces && pieces.length) {
+      let renderedPiecesArray = []
+      pieces.forEach(piece => {
+        renderedPiecesArray.push(this.renderPiece(piece))
+      })
+      console.log('got Pieces!')
+      this.setState({ renderedPieces: renderedPiecesArray })
     }
-    
   }
-  
-  renderPiece = (info) => {
-    return <Piece onDoneEditing = { this.onDoneEditing } onEdit = { this.onEdit } onDoneEditing = { this.onDoneEditing } pieceData = {info}/>
-  
+
+  renderPiece = info => {
+    return (
+      <Piece
+        onDoneEditing={this.onDoneEditing}
+        onEdit={this.onEdit}
+        onDoneEditing={this.onDoneEditing}
+        pieceData={info}
+      />
+    )
   }
 
   render () {
-
     return (
       <div>
         {this.state.renderedPieces}
