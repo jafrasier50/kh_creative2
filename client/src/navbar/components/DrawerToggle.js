@@ -5,7 +5,7 @@ class DrawerToggle extends Component {
   render() {
     return (
       <StyledDrawerToggle>
-        <button className="toggle-button">
+        <button className="toggle-button" onClick={this.props.click}>
           <div className="toggle-button__line" />
           <div className="toggle-button__line" />
           <div className="toggle-button__line" />
