@@ -1,15 +1,23 @@
 import styled from "styled-components";
+import img from "../../../images/sideDrawerBackground.jpg";
 
 export const StyledSideDrawer = styled.div`
   .sideDrawer {
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+    background-image: url(${img});
+    background-attachment: fixed;
+    box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
     width: 70%;
     z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.7s ease-out;
+  }
+
+  .sideDrawer.open {
+    transform: translateX(0);
   }
 
   .sideDrawer ul {
@@ -27,11 +35,18 @@ export const StyledSideDrawer = styled.div`
     color: whitesmoke;
     text-decoration: none;
     font-size: 1.2rem;
+    font-weight: 300;
     display: block;
   }
 
   .sideDrawer a:hover,
-  .sideDrawera:active {
+  .sideDrawer a:active {
     color: darkgray;
+  }
+
+  @media (min-width: 769px) {
+    .sideDrawer {
+      display: none;
+    }
   }
 `;

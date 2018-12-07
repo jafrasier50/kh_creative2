@@ -24,12 +24,13 @@ class Navbar extends Component {
   render() {
     const { loggedIn } = this.props;
     const currentRoute = window.location.pathname;
+    console.log(this.props.drawerClickHandler);
     return (
       <div>
         <StyledNavbar>
           <div className="toolbar">
             <nav className="toolbarNavigation">
-              <div>
+              <div className="sidebarToggleButton">
                 <DrawerToggle click={this.props.drawerClickHandler} />
               </div>
               <div className="toolbarLogo">
@@ -46,12 +47,16 @@ class Navbar extends Component {
                       <a href="pieces_dashboard">Kelly's Dashboard</a>
                     ) : null}
                     {!loggedIn && currentRoute != "/login" ? (
-                      <button onClick={this.login}>login</button>
+                      <button className="navButton" onClick={this.login}>
+                        Login
+                      </button>
                     ) : null}
                   </li>
                   <li>
                     {loggedIn ? (
-                      <button onClick={this.logout}>logout</button>
+                      <button className="navButton" onClick={this.logout}>
+                        Logout
+                      </button>
                     ) : null}
                   </li>
                 </ul>

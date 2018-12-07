@@ -13,25 +13,28 @@ class App extends Component {
     sideDrawerOpen: false
   };
   drawerToggleClickHandler = () => {
+    console.log("you fuck ass lilly licker");
     this.setState(prevState => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
 
+  backdropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
+  };
+
   render() {
-    let sideDrawer;
     let backdrop;
 
     if (this.state.sideDrawerOpen) {
-      sideDrawer = <SideDrawer />;
-      backdrop = <Backdrop />;
+      backdrop = <Backdrop click={this.backdropClickHandler} />;
     }
 
     return (
       <Router>
         <div className="App" style={{ height: "100%" }}>
           <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
-          {sideDrawer}
+          <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
 
           <main style={{ marginTop: "64px" }}>

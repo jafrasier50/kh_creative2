@@ -5,7 +5,7 @@ class Backdrop extends Component {
   render() {
     return (
       <StyledBackdrop>
-        <div className="backdrop" />;
+        <div className="backdrop" onClick={this.props.click} />;
       </StyledBackdrop>
     );
   }

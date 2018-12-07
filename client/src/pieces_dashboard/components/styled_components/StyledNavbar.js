@@ -43,6 +43,14 @@ export const StyledNavbar = styled.div`
     padding: 0 0.5rem;
   }
 
+  .navButton {
+    background: transparent;
+    color: whitesmoke;
+    display: block;
+    border: none;
+    font-size: 15px;
+  }
+
   .toolbarNavigationItems a {
     color: white;
     text-decoration: none;
@@ -53,88 +61,18 @@ export const StyledNavbar = styled.div`
     color: lightgrey;
   }
 
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0 100px;
-  background: purple;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-
-  .logo {
-    color: white;
-    height: 50px;
-    line-height: 50px;
-    font-size: 24px;
-    float: left;
-    font-weight: 200;
-    padding-left: 25px;
+  @media (max-width: 768px) {
+    .toolbarNavigationItems {
+      display: none;
+    }
   }
 
-  nav {
-    float: right;
+  @media (min-width: 769px) {
+    .sidebarToggleButton {
+      display: none;
+    }
+    .toolbarLogo {
+      margin-left: 0;
+    }
   }
-
-  nav ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-
-  nav ul li {
-    list-style: None;
-  }
-
-  nav ul li a {
-    height: 50px;
-    line-height: 50px;
-    padding: 0 20px;
-    color: whitesmoke;
-    text-decoration: none;
-    display: block;
-  }
-
-  button {
-    border: none;
-  }
-
-  nav ul li a:hover,
-  nav ul li a.active {
-    color: whitesmoke;
-    background: #333;
-  } */
-
-  /* @media (max-width: 991px) {
-     {
-      padding: 0 20px;
-    }
-
-    .hamburger-toggle {
-      display: block;
-    }
-
-    nav {
-      position: absolute;
-      width: 100%;
-      height: calc(100vh - 50px);
-      background: #333;
-      top: 50px;
-      left: -100%;
-      transition: 0.5s;
-    }
-
-    nav.active {
-      left: 0;
-    }
-
-    nav ul {
-      display: block;
-      text-align: center;
-    }
-    nav ul li a {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    }
-  } */
 `;
