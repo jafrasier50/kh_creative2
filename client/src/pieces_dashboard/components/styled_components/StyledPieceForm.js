@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const StyledEditPieceForm = styled.div`
+export const StyledPieceForm = styled.div`
+  h4 {
+    color: whitesmoke;
+    font-weight: 300;
+  }
   form {
-    max-width: 75%;
+    width: 270px;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     height: auto;
@@ -15,6 +19,7 @@ export const StyledEditPieceForm = styled.div`
     border-color: black;
   }
   input[type="file"] {
+    width: 95%;
     background-color: whitesmoke;
     border: border-box;
     border-color: black;

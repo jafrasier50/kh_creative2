@@ -14,7 +14,7 @@ class Navbar extends Component {
   logout = e => {
     e.preventDefault();
     cookies.remove("pieces_secret");
-    this.props.history.replace("/pieces");
+    this.props.history.replace("/home");
   };
 
   login = e => {

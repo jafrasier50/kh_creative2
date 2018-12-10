@@ -34,7 +34,7 @@ export const StyledSideDrawer = styled.div`
   .sideDrawer a {
     color: whitesmoke;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 300;
     display: block;
   }

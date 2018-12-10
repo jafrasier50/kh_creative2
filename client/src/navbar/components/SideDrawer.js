@@ -11,16 +11,16 @@ class SideDrawer extends Component {
         <nav className={drawerClasses}>
           <ul>
             <li>
-              <a href="/">HOME</a>
+              <a href="/home">HOME</a>
             </li>
             <li>
-              <a href="/">BIO</a>
+              <a href="/home">BIO</a>
             </li>
             <li>
-              <a href="/">ART</a>
+              <a href="/home">ART</a>
             </li>
             <li>
-              <a href="/">CONTACT</a>
+              <a href="/home">CONTACT</a>
             </li>
           </ul>
         </nav>

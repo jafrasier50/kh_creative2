@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import { StyledEditPieceForm } from "./styled_components/StyledEditPieceForm";
 const cookies = new Cookies();
 
 const StyledForm = styled.div`
@@ -146,55 +147,61 @@ class UploadPieceForm extends Component {
         {uploading ? (
           <p>Uploading Image...</p>
         ) : (
-          <form onSubmit={this.formSubmit}>
-            <input
-              type="text"
-              onChange={this.handleChange}
-              name="title"
-              placeholder="enter title"
-              value={title}
-            />
-            <textarea
-              onChange={this.handleChange}
-              name="description"
-              placeholder="enter description"
-              value={description}
-            />
-            <input
-              onChange={this.handleChange}
-              name="category"
-              placeholder="enter category"
-              value={category}
-            />
-            <input
-              onChange={this.handleChange}
-              name="availability"
-              placeholder="enter availability"
-              value={availability}
-            />
-            <input
-              onChange={this.handleChange}
-              name="price"
-              placeholder="enter price"
-              value={price}
-            />
-            {uploaded ? (
-              <p>image upload successful! Ready to submit when you are...</p>
-            ) : (
+          <StyledEditPieceForm>
+            <form onSubmit={this.formSubmit}>
               <input
-                onChange={this.uploadFile}
-                type="file"
-                id="file"
-                placeholder="Upload an Image"
+                type="text"
+                onChange={this.handleChange}
+                name="title"
+                placeholder="enter title"
+                value={title}
               />
-            )}
-            {!errorUploading ? (
-              <input type="submit" />
-            ) : (
-              <p>Error Uploading Image. Try again.</p>
-            )}
-            <button onClick={this.deletePiece}>Delete</button>
-          </form>
+              <input
+                type="text"
+                onChange={this.handleChange}
+                name="description"
+                placeholder="enter description"
+                value={description}
+              />
+              <input
+                type="text"
+                onChange={this.handleChange}
+                name="category"
+                placeholder="enter category"
+                value={category}
+              />
+              <input
+                type="text"
+                onChange={this.handleChange}
+                name="availability"
+                placeholder="enter availability"
+                value={availability}
+              />
+              <input
+                type="text"
+                onChange={this.handleChange}
+                name="price"
+                placeholder="enter price"
+                value={price}
+              />
+              {uploaded ? (
+                <p>image upload successful! Ready to submit when you are...</p>
+              ) : (
+                <input
+                  onChange={this.uploadFile}
+                  type="file"
+                  id="file"
+                  placeholder="Upload an Image"
+                />
+              )}
+              {!errorUploading ? (
+                <input type="submit" />
+              ) : (
+                <p>Error Uploading Image. Try again.</p>
+              )}
+              <button onClick={this.deletePiece}>Delete</button>
+            </form>
+          </StyledEditPieceForm>
         )}
       </div>
     ) : null;

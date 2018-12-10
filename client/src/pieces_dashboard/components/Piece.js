@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import EditPiece from './EditPiece'
-import { StyledPiece } from './styled_components/StyledPiece'
-import { checkAuth } from '../../auth/checkAuth'
+import React, { Component } from "react";
+import styled from "styled-components";
+import EditPiece from "./EditPiece";
+import { StyledPiece } from "./styled_components/StyledPiece";
+import { checkAuth } from "../../auth/checkAuth";
 
 class Piece extends Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     const {
       title,
       description,
@@ -15,7 +15,7 @@ class Piece extends Component {
       availability,
       price,
       id
-    } = this.props.pieceData
+    } = this.props.pieceData;
 
     this.state = {
       title,
@@ -25,31 +25,31 @@ class Piece extends Component {
       availability,
       price,
       id
-    }
+    };
   }
   state = {
     editing: false
-  }
+  };
   onUpdate = newData => {
-    this.setState({ ...newData, editing: false })
-    this.props.onDoneEditing()
-  }
+    this.setState({ ...newData, editing: false });
+    this.props.onDoneEditing();
+  };
 
   onDelete = () => {
-    this.props.onDoneEditing()
-  }
+    this.props.onDoneEditing();
+  };
 
   clickedEdit = () => {
-    this.setState({ editing: true })
-    this.props.onEdit()
-  }
+    this.setState({ editing: true });
+    this.props.onEdit();
+  };
 
   clickedDelete = () => {
-    this.props.onDelete()
-    this.deletePiece()
-  }
+    this.props.onDelete();
+    this.deletePiece();
+  };
 
-  render () {
+  render() {
     const {
       title,
       description,
@@ -58,25 +58,27 @@ class Piece extends Component {
       availability,
       price,
       id
-    } = this.state
-    return this.state.editing
-      ? <EditPiece
+    } = this.state;
+    return this.state.editing ? (
+      <EditPiece
         onDelete={this.onDelete}
         onUpdate={this.onUpdate}
         pieceData={this.props.pieceData}
-        />
-      : <StyledPiece key={id}>
-        <h5>{title}</h5>
+      />
+    ) : (
+      <StyledPiece key={id}>
+        <h2>{title}</h2>
         <p>{description}</p>
         <img src={img_url} />
         <strong>Availability: {availability}</strong>
         <br />
         <strong>Price: {price}</strong>
-        {this.state.editing || !this.props.loggedIn
-            ? null
-            : <button onClick={this.clickedEdit}>Edit</button>}
+        {this.state.editing || !this.props.loggedIn ? null : (
+          <button onClick={this.clickedEdit}>Edit</button>
+        )}
       </StyledPiece>
+    );
   }
 }
 
-export default Piece
+export default Piece;
