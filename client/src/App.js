@@ -38,8 +38,8 @@ class App extends Component {
 
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
-          <main style={{ marginTop: "64px" }}>
-            <Route exact path="/home" component={PiecesView} />
+          <main style={{ marginTop: "56px" }}>
+            <Route exact path="/home" component={this.visitorView} />
             <Route
               exact
               path="/pieces_dashboard"
@@ -49,6 +49,15 @@ class App extends Component {
           </main>
         </div>
       </Router>
+    );
+  }
+
+  visitorView() {
+    return (
+      <div>
+        <LandingPage />
+        <PiecesView />
+      </div>
     );
   }
 }

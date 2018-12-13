@@ -8,6 +8,7 @@ export const StyledNavbar = styled.div`
     width: 100%;
     background-color: black;
     height: 56px;
+    z-index: 10;
   }
 
   .toolbarNavigation {

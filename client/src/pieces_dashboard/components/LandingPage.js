@@ -5,13 +5,15 @@ class LandingPage extends Component {
   render() {
     return (
       <StyledLandingPage>
-        <Parallax className="landingPage" strength={300}>
-          <div>Use the background component for custom elements</div>
-          <Background className="custom-bg">
-            <img src="http://www.fillmurray.com/500/320" alt="fill murray" />
-          </Background>
+        <Parallax
+          blur={{ min: -15, max: 15 }}
+          bgImage={require("../../images/LandingPageImage.jpg")}
+          bgImageAlt="the dog"
+          strength={-500}
+        >
+          Blur transition from min to max
+          <div style={{ height: "95vh" }} />
         </Parallax>
-        ;
       </StyledLandingPage>
     );
   }
