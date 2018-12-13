@@ -13,7 +13,7 @@ export const StyledSideDrawer = styled.div`
     width: 70%;
     z-index: 200;
     transform: translateX(-100%);
-    transition: transform 0.7s ease-out;
+    transition: transform 0.9s ease-in-out;
   }
 
   .sideDrawer.open {

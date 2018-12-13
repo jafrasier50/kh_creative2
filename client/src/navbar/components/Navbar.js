@@ -34,7 +34,7 @@ class Navbar extends Component {
                 <DrawerToggle click={this.props.drawerClickHandler} />
               </div>
               <div className="toolbarLogo">
-                <a href="/"> KH CREATIVE</a>
+                <a href="/home"> KH CREATIVE</a>
               </div>
               <div className="spacer" />
               <div className="toolbarNavigationItems">

@@ -7,6 +7,7 @@ import PiecesDashboardView from "./pieces_dashboard/components/View";
 import Login from "./auth/Login";
 import SideDrawer from "./navbar/components/SideDrawer";
 import Backdrop from "./navbar/components/Backdrop";
+import LandingPage from "./pieces_dashboard/components/LandingPage";
 
 class App extends Component {
   state = {
@@ -34,9 +35,9 @@ class App extends Component {
       <Router>
         <div className="App" style={{ height: "100%" }}>
           <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
+
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
-
           <main style={{ marginTop: "64px" }}>
             <Route exact path="/home" component={PiecesView} />
             <Route

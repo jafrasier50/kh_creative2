@@ -17,4 +17,9 @@ export const StyledPiece = styled.div`
   strong {
     font-weight: 200;
   }
+  .editButton {
+    background: darkred;
+    border: border-box 1px;
+    border-color: black;
+  }
 `;

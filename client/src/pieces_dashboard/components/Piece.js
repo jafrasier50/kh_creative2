@@ -67,14 +67,22 @@ class Piece extends Component {
       />
     ) : (
       <StyledPiece key={id}>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <img src={img_url} />
-        <strong>Availability: {availability}</strong>
-        <br />
-        <strong>Price: {price}</strong>
+        <div className="pieceInfo">
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </div>
+        <div classname="pieceImage">
+          <img src={img_url} />
+        </div>
+        <div className="pieceStats">
+          <strong>Availability: {availability}</strong>
+          <br />
+          <strong>Price: {price}</strong>
+        </div>
         {this.state.editing || !this.props.loggedIn ? null : (
-          <button onClick={this.clickedEdit}>Edit</button>
+          <button className="editButton" onClick={this.clickedEdit}>
+            Edit
+          </button>
         )}
       </StyledPiece>
     );

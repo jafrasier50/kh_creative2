@@ -110,9 +110,25 @@ class PiecesDashboard extends Component {
     }
   };
 
+  resetForm = newRenderedPieces => {
+    this.setState({
+      title: "",
+      description: "",
+      category: "",
+      img_url: "",
+      availability: "",
+      price: "",
+      renderedPieces: [],
+      uploading: false,
+      errorUploading: false,
+      uploaded: false,
+      editing: false,
+      renderedPieces: newRenderedPieces
+    });
+  };
+
   formSubmit = async e => {
     e.preventDefault();
-
     let piecesPassCookie = cookies.get("pieces_secret");
 
     if (piecesPassCookie) {
@@ -144,8 +160,11 @@ class PiecesDashboard extends Component {
       var newRenderedPieces = [...this.state.renderedPieces];
 
       newRenderedPieces.push(this.renderPiece(result.data.created));
+      this.resetForm(newRenderedPieces);
 
-      this.setState({ renderedPieces: newRenderedPieces });
+      // this.setState({
+      //   renderedPieces: {newRenderedPieces}
+      // });
     }
   };
 
