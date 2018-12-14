@@ -8,6 +8,7 @@ import Login from "./auth/Login";
 import SideDrawer from "./navbar/components/SideDrawer";
 import Backdrop from "./navbar/components/Backdrop";
 import LandingPage from "./pieces_dashboard/components/LandingPage";
+import Biography from "./pieces_dashboard/components/Biography";
 
 class App extends Component {
   state = {
@@ -56,6 +57,7 @@ class App extends Component {
     return (
       <div>
         <LandingPage />
+        <Biography />
         <PiecesView />
       </div>
     );

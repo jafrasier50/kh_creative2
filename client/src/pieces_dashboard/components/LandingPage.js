@@ -11,8 +11,13 @@ class LandingPage extends Component {
           bgImageAlt="the dog"
           strength={-500}
         >
-          Blur transition from min to max
-          <div style={{ height: "95vh" }} />
+          <h1 className="landingPageHeader">
+            Kelly's <br />
+            Sandbox <br />
+            for <br />
+            "Things"
+          </h1>
+          <div style={{ height: "13rem" }} />
         </Parallax>
       </StyledLandingPage>
     );
