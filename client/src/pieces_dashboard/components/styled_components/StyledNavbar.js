@@ -42,6 +42,7 @@ export const StyledNavbar = styled.div`
 
   .toolbarNavigationItems li {
     padding: 0 0.5rem;
+    display: block;
   }
 
   .navButton {
@@ -50,6 +51,7 @@ export const StyledNavbar = styled.div`
     display: block;
     border: none;
     font-size: 15px;
+    display: block;
   }
 
   .toolbarNavigationItems a {

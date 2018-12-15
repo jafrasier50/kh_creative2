@@ -1,7 +1,7 @@
 {
   "development": {
     "username": null,
-    "password": null,
+    "password": "bubblegum",
     "database": "art",
     "host": "127.0.0.1",
     "dialect": "postgres"

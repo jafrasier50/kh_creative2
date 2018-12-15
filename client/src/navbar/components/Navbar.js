@@ -40,13 +40,13 @@ class Navbar extends Component {
               <div className="toolbarNavigationItems">
                 <ul>
                   <li>
-                    {loggedIn && currentRoute != "/home" ? (
+                    {loggedIn && currentRoute !== "/home" ? (
                       <a href="home">Home</a>
                     ) : null}
-                    {loggedIn && currentRoute != "/pieces_dashboard" ? (
+                    {loggedIn && currentRoute !== "/pieces_dashboard" ? (
                       <a href="pieces_dashboard">Kelly's Dashboard</a>
                     ) : null}
-                    {!loggedIn && currentRoute != "/login" ? (
+                    {!loggedIn && currentRoute !== "/login" ? (
                       <button className="navButton" onClick={this.login}>
                         Login
                       </button>

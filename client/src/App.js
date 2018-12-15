@@ -9,13 +9,14 @@ import SideDrawer from "./navbar/components/SideDrawer";
 import Backdrop from "./navbar/components/Backdrop";
 import LandingPage from "./pieces_dashboard/components/LandingPage";
 import Biography from "./pieces_dashboard/components/Biography";
+import Footer from "./pieces_dashboard/components/Footer";
+import Contact from "./pieces_dashboard/components/Contact";
 
 class App extends Component {
   state = {
     sideDrawerOpen: false
   };
   drawerToggleClickHandler = () => {
-    console.log("you fuck ass lilly licker");
     this.setState(prevState => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
@@ -59,6 +60,8 @@ class App extends Component {
         <LandingPage />
         <Biography />
         <PiecesView />
+        <Contact />
+        <Footer />
       </div>
     );
   }
