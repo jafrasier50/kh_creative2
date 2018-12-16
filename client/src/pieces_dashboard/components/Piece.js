@@ -71,7 +71,7 @@ class Piece extends Component {
           <h2>{title}</h2>
           <p>{description}</p>
         </div>
-        <div classname="pieceImage">
+        <div className="pieceImage">
           <img src={img_url} />
         </div>
         <div className="pieceStats">

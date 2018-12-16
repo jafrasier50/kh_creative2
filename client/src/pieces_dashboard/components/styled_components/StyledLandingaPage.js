@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const StyledLandingPage = styled.div`
-
-  @media (min-width: 350px) {
+  @media (min-width: 320px) {
     height: 100vh;
     position: relative;
 
     .landingPageHeader {
       padding: 25px;
-      font-size: 12vw;
+      font-size: 10vw;
       font-weight: 500;
       align-content: center;
       margin-left: auto;
@@ -16,7 +15,8 @@ export const StyledLandingPage = styled.div`
       max-width: 60%;
       background: rgba(0, 0, 0, 0.6);
       color: whitesmoke;
-      margin-top: 25%;
+      margin-top: 10%;
+    }
   }
 
   @media (min-width: 400px) {
@@ -34,6 +34,7 @@ export const StyledLandingPage = styled.div`
       background: rgba(0, 0, 0, 0.6);
       color: whitesmoke;
       margin-top: 10%;
+    }
   }
 
   /* Larger than phablet */
@@ -51,7 +52,8 @@ export const StyledLandingPage = styled.div`
       max-width: 60%;
       background: rgba(0, 0, 0, 0.6);
       color: whitesmoke;
-      margin-top: 10%;
+      margin-top: 8%;
+    }
   }
 
   /* Larger than tablet */
@@ -70,6 +72,7 @@ export const StyledLandingPage = styled.div`
       background: rgba(0, 0, 0, 0.6);
       color: whitesmoke;
       margin-top: 10%;
+    }
   }
 
   /* Larger than desktop */
@@ -87,7 +90,8 @@ export const StyledLandingPage = styled.div`
       max-width: 60%;
       background: rgba(0, 0, 0, 0.6);
       color: whitesmoke;
-      margin-top: 15%;
+      margin-top: 10%;
+    }
   }
 
   /* Larger than Desktop HD */
@@ -105,7 +109,7 @@ export const StyledLandingPage = styled.div`
       max-width: 60%;
       background: rgba(0, 0, 0, 0.6);
       color: whitesmoke;
-      margin-top: 10%;
+      margin-top: 5%;
     }
   }
 `;
