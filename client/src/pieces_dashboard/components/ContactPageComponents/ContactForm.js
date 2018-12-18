@@ -21,6 +21,7 @@ class ContactForm extends Component {
   }
 
   render() {
+    // console.log(this.state);
     return (
       <div>
         {/*Name Field*/}
