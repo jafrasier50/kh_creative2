@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { StyledContactForm } from "./ContactStyledComponents/StyledContactForm";
 
 import Field from "./Field";
 import Button from "./Button";
@@ -23,29 +24,44 @@ class ContactForm extends Component {
   render() {
     // console.log(this.state);
     return (
-      <div>
-        {/*Name Field*/}
-        <Field
-          lable="Name"
-          onChange={event => this.updateField("name", event.target.value)}
-          value={this.state.name}
-        />
-        {/*Email Field*/}
-        <Field
-          lable="Email"
-          onChange={event => this.updateField("email", event.target.value)}
-          value={this.state.email}
-        />
-        {/*Message TextArea*/}
-        <Field
-          lable="Message"
-          onChange={event => this.updateField("message", event.target.value)}
-          textarea={true}
-          value={this.state.message}
-        />
-        {/*Submit Button*/}
-        <Button email="jafrasier50@gmail.com" formValues={this.state} />
-      </div>
+      <StyledContactForm>
+        <div className="contact-innerdiv">
+          <div class="contactHeader">
+            <h1>Want one of me pieces or just want to say hi?</h1>
+          </div>
+          <div className="contactFormWrapper">
+            <div className="contactForm">
+              {/*Name Field*/}
+              <Field
+                lable="Name"
+                onChange={event => this.updateField("name", event.target.value)}
+                value={this.state.name}
+              />
+              {/*Email Field*/}
+              <Field
+                lable="Email"
+                onChange={event =>
+                  this.updateField("email", event.target.value)
+                }
+                value={this.state.email}
+              />
+              {/*Message TextArea*/}
+              <Field
+                lable="Message"
+                onChange={event =>
+                  this.updateField("message", event.target.value)
+                }
+                textarea={true}
+                value={this.state.message}
+              />
+              {/*Submit Button*/}
+              <div className="submit-button">
+                <Button email="jafrasier50@gmail.com" formValues={this.state} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </StyledContactForm>
     );
   }
 }

@@ -7,7 +7,6 @@ class Contact extends Component {
     return (
       <StyledContact>
         <div className="contactContent">
-          <h1>I AM THE CONTACT SECTION</h1>
           <ContactForm />
         </div>
       </StyledContact>

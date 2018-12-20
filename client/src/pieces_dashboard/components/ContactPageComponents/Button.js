@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { StyledButton } from "./ContactStyledComponents/StyledButton";
 
 class Button extends Component {
   static propTypes = {
@@ -27,12 +28,14 @@ class Button extends Component {
     const subject = `?subject=${this.props.formValues.name}`;
     const body = `&body=${this.props.formValues.message}`;
     return (
-      <a
-        href={`${recipient}${subject}${body}`}
-        onClick={this.logFormDataToConsole}
-      >
-        DM The EM
-      </a>
+      <StyledButton>
+        <a
+          href={`${recipient}${subject}${body}`}
+          onClick={this.logFormDataToConsole}
+        >
+          DM The EM
+        </a>
+      </StyledButton>
     );
   }
 }
