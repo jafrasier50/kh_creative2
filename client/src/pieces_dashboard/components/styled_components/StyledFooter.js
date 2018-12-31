@@ -5,23 +5,32 @@ export const StyledFooter = styled.div`
   .footer {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     position: absolute;
     width: 100%;
     background: black;
     margin-bottom: 0;
-    height: 200px;
+    height: 300px;
+  }
+
+  .social-icons-div {
+    margin: auto;
+    padding: 15px;
+  }
+  .social-icons {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    padding-bottom: 25px;
+  }
+  .social-icons li {
+    padding-right: 10px;
   }
 
   h1 {
     color: whitesmoke;
-  }
-
-  .social-icons {
-    width: 50%;
-  }
-
-  .site-information {
-    width: 50%;
   }
 
   .credits {
@@ -32,6 +41,6 @@ export const StyledFooter = styled.div`
   }
 
   .credits a {
-    color: lightgray;
+    color: darkgreen;
   }
 `;

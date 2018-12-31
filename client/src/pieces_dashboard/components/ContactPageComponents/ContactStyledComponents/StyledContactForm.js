@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledContactForm = styled.div`
-  /* .contact-innerdiv {
+  .contact-innerdiv {
     padding: 25px;
     margin: 0 auto;
     max-width: 90%;
@@ -23,5 +23,5 @@ export const StyledContactForm = styled.div`
 
   .submit-button {
     margin: 35px;
-  } */
+  }
 `;
