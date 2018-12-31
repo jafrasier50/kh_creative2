@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const StyledContactForm = styled.div`
-  .contact-innerdiv {
+  /* .contact-innerdiv {
     padding: 25px;
     margin: 0 auto;
-    max-width: 85%;
+    max-width: 90%;
     background-color: rgba(0, 0, 0, 0.6);
   }
 
@@ -15,12 +15,13 @@ export const StyledContactForm = styled.div`
   }
 
   .contactForm {
+    color: white;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    max-width: 100%;
   }
 
   .submit-button {
     margin: 35px;
-  }
+  } */
 `;

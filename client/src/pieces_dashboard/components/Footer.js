@@ -5,7 +5,14 @@ class Footer extends Component {
     return (
       <StyledFooter>
         <div className="footer">
-          <h1>I am the Footer</h1>
+          <div className="social-icons">Social Media icons</div>
+          <div className="site-information">I am the info</div>
+          <div className="credits">
+            <p>
+              Site Design by
+              <a href="Joshfrasier.com">Josh Frasier</a>
+            </p>
+          </div>
         </div>
       </StyledFooter>
     );

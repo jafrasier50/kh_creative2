@@ -27,7 +27,7 @@ class ContactForm extends Component {
       <StyledContactForm>
         <div className="contact-innerdiv">
           <div class="contactHeader">
-            <h1>Want one of me pieces or just want to say hi?</h1>
+            <h1>Want one of my pieces or just want to say hi?</h1>
           </div>
           <div className="contactFormWrapper">
             <div className="contactForm">
