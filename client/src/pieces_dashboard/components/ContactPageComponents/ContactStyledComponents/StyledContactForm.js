@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
 export const StyledContactForm = styled.div`
+  /* Mobile first queries */
   .contact-innerdiv {
-    padding: 25px;
-    margin: 0 auto;
-    max-width: 90%;
-    background-color: rgba(0, 0, 0, 0.6);
+    padding: 35px;
+    margin: auto;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    vertical-align: middle;
   }
 
   .contactHeader {
     color: whitesmoke;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     padding: 25px;
   }
 
@@ -22,6 +24,27 @@ export const StyledContactForm = styled.div`
   }
 
   .submit-button {
-    margin: 35px;
+    padding: 85px;
+    margin: auto;
+  }
+
+  /* Larger than mobile */
+  @media (min-width: 400px) {
+  }
+
+  /* Larger than phablet */
+  @media (min-width: 550px) {
+  }
+
+  /* Larger than tablet */
+  @media (min-width: 750px) {
+  }
+
+  /* Larger than desktop */
+  @media (min-width: 1000px) {
+  }
+
+  /* Larger than Desktop HD */
+  @media (min-width: 1200px) {
   }
 `;

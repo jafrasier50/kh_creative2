@@ -8,8 +8,8 @@ class Footer extends Component {
       <StyledFooter>
         <div className="footer">
           <div className="social-icons-div">
-            <h1>You've reached the bottom.</h1>{" "}
-            <h4>here's some other cool places</h4>
+            <h1>You've reached the bottom,</h1>{" "}
+            <h4>but here's some other cool places</h4>
             <ul className="social-icons">
               <li className=".social-icon-items">
                 <SocialIcon
@@ -34,7 +34,7 @@ class Footer extends Component {
           <div className="credits">
             <p>
               Site Design by
-              <a href="joshfrasier.com">Josh Frasier</a>
+              <a href="joshfrasier.com"> Josh Frasier</a> 2019
             </p>
           </div>
         </div>

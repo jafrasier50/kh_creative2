@@ -37,10 +37,10 @@ export const StyledFooter = styled.div`
     width: 100%;
     position: absolute;
     bottom: 0;
-    padding: 10px;
   }
 
   .credits a {
     color: darkgreen;
+    text-decoration: none;
   }
 `;

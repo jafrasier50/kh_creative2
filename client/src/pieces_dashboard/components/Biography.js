@@ -22,7 +22,7 @@ class Biography extends Component {
             </p>
           </div>
         </div>
-        <div className="kelly">
+        {/* <div className="kelly">
           <Parallax
             className="bioParallax"
             blur={{ min: -15, max: 15 }}
@@ -33,7 +33,7 @@ class Biography extends Component {
             <h1 className="landingPageHeader" />
             <div style={{ height: "100vh" }} />
           </Parallax>
-        </div>
+        </div> */}
       </StyledBiography>
     );
   }

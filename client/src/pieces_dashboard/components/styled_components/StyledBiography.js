@@ -25,7 +25,7 @@ export const StyledBiography = styled.div`
     padding: 10px;
     margin: auto;
     text-align: left;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: whitesmoke;
   }
   .bioContent {
@@ -68,7 +68,7 @@ export const StyledBiography = styled.div`
       padding: 15px;
       margin: auto;
       text-align: left;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       color: whitesmoke;
     }
     .bioContent {
@@ -113,16 +113,16 @@ export const StyledBiography = styled.div`
       padding: 25px;
       margin: auto;
       text-align: left;
-      font-size: 1.1rem;
+      font-size: 1.7rem;
       color: whitesmoke;
     }
     .bioContent {
-      width: 50%;
+      width: 100%;
       height: 100vh;
       background: rgba(0, 0, 0, 0.7);
       margin-left: auto;
       margin-right: auto;
-      line-height: 27px;
+      line-height: 35px;
     }
     .kelly {
       height: 100vh;
@@ -159,16 +159,16 @@ export const StyledBiography = styled.div`
       padding: 25px;
       margin: auto;
       text-align: left;
-      font-size: 1.2rem;
+      font-size: 1.9rem;
       color: whitesmoke;
     }
     .bioContent {
-      width: 50%;
+      width: 100%;
       height: 100vh;
       background: rgba(0, 0, 0, 0.7);
       margin-left: auto;
       margin-right: auto;
-      line-height: 23px;
+      line-height: 40px;
       min-width: 312px;
     }
     .kelly {
@@ -206,16 +206,16 @@ export const StyledBiography = styled.div`
       padding: 25px;
       margin: auto;
       text-align: left;
-      font-size: 1.5rem;
+      font-size: 2.3rem;
       color: whitesmoke;
     }
     .bioContent {
-      width: 50%;
+      width: 100%;
       height: 100vh;
       background: rgba(0, 0, 0, 0.7);
       margin-left: auto;
       margin-right: auto;
-      line-height: 35px;
+      line-height: 50px;
       min-width: 312px;
     }
     .kelly {
@@ -242,7 +242,7 @@ export const StyledBiography = styled.div`
     flex-wrap: wrap-reverse;
 
     .bioHeader {
-      font-size: 3rem;
+      font-size: 4rem;
       margin-top: auto;
       padding-top: 75px;
       color: whitesmoke;
@@ -253,16 +253,16 @@ export const StyledBiography = styled.div`
       padding: 25px;
       margin: auto;
       text-align: left;
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       color: whitesmoke;
     }
     .bioContent {
-      width: 50%;
+      width: 100%;
       height: 100vh;
       background: rgba(0, 0, 0, 0.7);
       margin-left: auto;
       margin-right: auto;
-      line-height: 35px;
+      line-height: 55px;
       min-width: 312px;
     }
     .kelly {
