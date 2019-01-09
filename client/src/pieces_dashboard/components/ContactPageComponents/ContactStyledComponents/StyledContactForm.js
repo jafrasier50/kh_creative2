@@ -3,17 +3,37 @@ import styled from "styled-components";
 export const StyledContactForm = styled.div`
   /* Mobile first queries */
   .contact-innerdiv {
-    padding: 35px;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
     margin: auto;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    vertical-align: middle;
+  }
+
+  .contact-container {
+    padding-top: 20px;
+    margin: auto;
+    width: 85%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
   }
 
   .contactHeader {
+    margin: auto;
     color: whitesmoke;
     font-size: 0.8rem;
     padding: 25px;
+  }
+
+  .CForm {
+    width: 70%;
+  }
+
+  .kelly-info {
+    text-align: auto;
+    width: 30%;
+    min-width: 100px;
+    color: whitesmoke;
   }
 
   .contactForm {

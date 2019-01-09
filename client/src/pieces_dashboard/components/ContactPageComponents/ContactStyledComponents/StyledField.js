@@ -10,7 +10,7 @@ export const StyledField = styled.div`
 
   input {
     color: whitesmoke;
-    width: 45%;
+    width: 70%;
     background-color: transparent;
     border-top: none;
     border-left: none;

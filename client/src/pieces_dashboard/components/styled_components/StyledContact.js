@@ -16,7 +16,6 @@ export const StyledContact = styled.div`
     height: 400px;
     display: inline-block;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
     padding-top: 20px;
     margin: auto;
     position: relative;
