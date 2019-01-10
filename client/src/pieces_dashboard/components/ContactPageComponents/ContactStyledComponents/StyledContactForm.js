@@ -6,10 +6,12 @@ export const StyledContactForm = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
     margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .contact-container {
-    padding-top: 20px;
     margin: auto;
     width: 85%;
     background-color: rgba(0, 0, 0, 0.8);

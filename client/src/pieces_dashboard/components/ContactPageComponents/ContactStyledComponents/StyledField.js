@@ -5,7 +5,7 @@ export const StyledField = styled.div`
   width: 100%;
 
   input[type="textarea"] {
-    height: 95px;
+    height: 200px;
   }
 
   input {
