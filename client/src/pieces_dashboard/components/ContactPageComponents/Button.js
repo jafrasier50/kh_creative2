@@ -33,7 +33,7 @@ class Button extends Component {
           href={`${recipient}${subject}${body}`}
           onClick={this.logFormDataToConsole}
         >
-          DM The EM
+          Submit
         </a>
       </StyledButton>
     );

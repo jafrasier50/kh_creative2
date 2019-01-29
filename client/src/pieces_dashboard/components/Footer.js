@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyledFooter } from "./styled_components/StyledFooter";
-import { SocialIcon } from "react-social-icons";
+import Instagram from "../../images/instagram.png";
+import Linkedin from "../../images/linkedin.png";
 
 class Footer extends Component {
   render() {
@@ -10,31 +11,25 @@ class Footer extends Component {
           <div className="social-icons-div">
             <h1>You've reached the bottom,</h1>{" "}
             <h4>but here's some other cool places</h4>
-            <ul className="social-icons">
-              <li className=".social-icon-items">
-                <SocialIcon
-                  url="https://www.instagram.com/kelly_a_hanning_art/"
-                  style={{ height: 35, width: 35 }}
+            <div className="socialIcons">
+              <a href="https://www.instagram.com/kelly_a_hanning_art/?hl=en">
+                <img
+                  className="icon"
+                  src={require("../../images/instagram.png")}
                 />
-              </li>
-              <li className=".social-icon-items">
-                <SocialIcon
-                  url="https://www.linkedin.com/in/kelly-a-hanning-15623897"
-                  style={{ height: 35, width: 35 }}
+              </a>
+              <a href="https://www.linkedin.com/in/kelly-a-hanning-15623897">
+                <img
+                  className="icon"
+                  src={require("../../images/linkedin.png")}
                 />
-              </li>
-              <li className=".social-icon-items">
-                <SocialIcon
-                  url="http://twitter.com/jaketrent"
-                  style={{ height: 35, width: 35 }}
-                />
-              </li>
-            </ul>
+              </a>
+            </div>
           </div>
           <div className="credits">
             <p>
-              Site Design by
-              <a href="joshfrasier.com"> Josh Frasier</a> 2019
+              Design by
+              <a href="http://joshfrasier.com"> Josh Frasier</a> | 2019
             </p>
           </div>
         </div>

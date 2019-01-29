@@ -5,24 +5,12 @@ export const StyledContact = styled.div`
   background-image: url(${img});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  background-attachment: fixed;
+  height: 837px;
 
   .contactContent {
-    height: 200px;
-    position: relative;
-  }
-
-  .contactFormWrapper {
-    height: 400px;
-    display: inline-block;
-    width: 100%;
-    padding-top: 20px;
-    margin: auto;
-    position: relative;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 837px;
   }
 
   /* Larger than mobile */
@@ -36,9 +24,17 @@ export const StyledContact = styled.div`
   /* Larger than tablet */
   @media (min-width: 750px) {
   }
-
   /* Larger than desktop */
   @media (min-width: 1000px) {
+    height: 100vh;
+    .contactContent {
+      height: 100%;
+      background-color: transparent;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   /* Larger than Desktop HD */

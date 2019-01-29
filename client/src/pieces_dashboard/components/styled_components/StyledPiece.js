@@ -4,16 +4,16 @@ export const StyledPiece = styled.div`
   /* Mobile first queries */
   color: whitesmoke;
   background-color: rgba(0, 0, 0, 0.8);
-  padding: 15px;
-  max-width: 320px;
+  max-width: 300px;
   margin: 10px;
+  padding:15px
   align-items: center;
 
   h2 {
     font-weight: 300;
   }
   img {
-    max-width: 300px;
+    max-width: 290px;
     max-height: auto;
   }
 

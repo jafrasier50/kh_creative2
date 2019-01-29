@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledFooter = styled.div`
   color: white;
+
   .footer {
     display: flex;
     flex-wrap: wrap;
@@ -9,24 +10,21 @@ export const StyledFooter = styled.div`
     position: absolute;
     width: 100%;
     background: black;
-    margin-bottom: 0;
-    height: 300px;
+    height: 250px;
   }
 
+  .icon {
+    height: 30px;
+    width: 30px;
+    margin: auto;
+    margin-right: 10px;
+  }
   .social-icons-div {
+    position: relative;
     margin: auto;
-    padding: 15px;
-  }
-  .social-icons {
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
+    margin-top: 5px;
     justify-content: center;
-    padding-bottom: 25px;
-  }
-  .social-icons li {
-    padding-right: 10px;
+    align-items: center;
   }
 
   h1 {
@@ -34,6 +32,7 @@ export const StyledFooter = styled.div`
   }
 
   .credits {
+    font-size: 0.7rem;
     width: 100%;
     position: absolute;
     bottom: 0;

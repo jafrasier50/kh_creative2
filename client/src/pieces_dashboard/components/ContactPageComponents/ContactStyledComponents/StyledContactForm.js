@@ -2,57 +2,64 @@ import styled from "styled-components";
 
 export const StyledContactForm = styled.div`
   /* Mobile first queries */
-  .contact-innerdiv {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100vh;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* max-width:450px; */
+margin:auto;
+@media(max-width: 999px){
+.socialIconsDiv{
+  display:none;
+}}
 
-  .contact-container {
-    margin: auto;
-    width: 85%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
+.contactHeader{
+  color:white;
+  padding-top:25px;
+  padding-bottom:25px;
 
-  .contactHeader {
-    margin: auto;
-    color: whitesmoke;
-    font-size: 0.8rem;
-    padding: 25px;
-  }
+}
+.contactFormLeft{
+  background-color:rgba(20,20,20,0.9)
+}
+.contactForm{
+  padding-top:30px;
+  padding-bottom:30px;
 
-  .CForm {
-    width: 70%;
-  }
+}
 
-  .kelly-info {
-    text-align: auto;
-    width: 30%;
-    min-width: 100px;
-    color: whitesmoke;
-  }
+.submit-button{
+  margin:auto;
+  width:81%
+}
 
-  .contactForm {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-  }
+.contactFormRight{
+  color:white;
+  background-color:rgba(0,0,0,0.9);
+  padding-top:30px;
+  padding-bottom:30px;  
+  text-align:center;
 
-  .submit-button {
-    padding: 85px;
-    margin: auto;
-  }
+}
+ .icon{
+   height:30px;
+   width:30px;
+   margin:auto;
+   margin-right:10px;
+ }
 
+.contactFormRight ul {
+  list-style:none;
+  display:inline;
+}
+
+.contactFormRight ul li {
+  margin-top: 10px;
+}
+
+@media(max-width: 1000px){
+  max-width:450px;
+}
+  
   /* Larger than mobile */
   @media (min-width: 400px) {
-  }
+    
 
   /* Larger than phablet */
   @media (min-width: 550px) {
@@ -60,11 +67,49 @@ export const StyledContactForm = styled.div`
 
   /* Larger than tablet */
   @media (min-width: 750px) {
-  }
+   
 
   /* Larger than desktop */
   @media (min-width: 1000px) {
+    width:100%;
+    height:80%;
+    display:flex;
+    justify-content:center;
+
+  .contactHeader h1{
+    font-size:2.3rem
+    }
+  .contactFormLeft{
+    height:100%;
+     width:50%;
+     max-width:650px;
+   }
+  .contactFormRight{
+    min-width:225px;
+    width:250px;
   }
+
+  .kelly-info-div{
+    margin-top:20%;
+    height:40%;
+    }
+
+  .kelly-info-div ul{
+    margin: auto;
+}
+  .kelly-info-div ul li{
+    margin-bottom: 30px;
+    font-weight:700;
+    font-size:1rem
+  }
+
+  .socialIconsDiv{
+    height:60%;
+}
+  .socialIcons{
+    margin-top:30%;
+  }
+
 
   /* Larger than Desktop HD */
   @media (min-width: 1200px) {

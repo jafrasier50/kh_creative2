@@ -6,8 +6,9 @@ export const StyledButton = styled.div`
     text-decoration: none;
     color: white;
     padding: 10px;
-    background: #646464;
+    background: #711a8c;
     display: block;
+    margin-top: 0px;
   }
   /* Larger than mobile */
   @media (min-width: 400px) {
