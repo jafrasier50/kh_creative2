@@ -69,10 +69,14 @@ class ContactForm extends Component {
           <div className="kelly-info-div">
             <ul className="kelly-info-list">
               <li>
-                <span style={{ color: "#711A8C" }}>
-                  Kelly Hanning | Tallahassee
+                <span style={{ color: "#711A8C", fontSize: "1.2rem" }}>
+                  Kelly Hanning
                 </span>
               </li>
+              <li>
+                <span>Tallahassee</span>
+              </li>
+
               <li>
                 <span>Artist</span>
               </li>
@@ -86,7 +90,9 @@ class ContactForm extends Component {
           </div>
           <div className="socialIconsDiv">
             <div className="socialIcons">
-              <h4 style={{ color: "#711A8C" }}>Find me on these below</h4>
+              <h4 style={{ color: "#711A8C", fontSize: "1.2rem" }}>
+                Find me on these below
+              </h4>
               <a href="https://www.instagram.com/kelly_a_hanning_art/?hl=en">
                 <img
                   className="icon"

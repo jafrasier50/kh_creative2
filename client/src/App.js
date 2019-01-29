@@ -11,11 +11,17 @@ import LandingPage from "./pieces_dashboard/components/LandingPage";
 import Biography from "./pieces_dashboard/components/Biography";
 import Footer from "./pieces_dashboard/components/Footer";
 import Contact from "./pieces_dashboard/components/Contact";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 class App extends Component {
   state = {
     sideDrawerOpen: false
   };
+
+  closeDrawerAfterLinkIsClicked = () => {
+    this.setState({ sideDrawerOpen: false });
+  };
+
   drawerToggleClickHandler = () => {
     this.setState(prevState => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
@@ -38,7 +44,10 @@ class App extends Component {
         <div className="App" style={{ height: "100%" }}>
           <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
 
-          <SideDrawer show={this.state.sideDrawerOpen} />
+          <SideDrawer
+            show={this.state.sideDrawerOpen}
+            closeDrawerAfterLinkIsClicked={this.closeDrawerAfterLinkIsClicked}
+          />
           {backdrop}
           <main style={{ marginTop: "56px" }}>
             <Route exact path="/home" component={this.visitorView} />
@@ -57,10 +66,19 @@ class App extends Component {
   visitorView() {
     return (
       <div>
-        <LandingPage />
-        <Biography />
-        <PiecesView />
-        <Contact />
+        <section id="home">
+          <LandingPage />
+        </section>
+        <section id="bio">
+          {" "}
+          <Biography />
+        </section>
+        <section id="art">
+          <PiecesView />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
         <Footer />
       </div>
     );
