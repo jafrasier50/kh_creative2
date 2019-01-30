@@ -21,6 +21,7 @@ export const StyledSideDrawer = styled.div`
   }
 
   .sideDrawer ul {
+    margin-top: 60%;
     height: 100%;
     list-style: none;
     display: flex;
@@ -42,6 +43,21 @@ export const StyledSideDrawer = styled.div`
   .sideDrawer a:hover,
   .sideDrawer a:active {
     color: darkgray;
+  }
+
+  .socialIcons {
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .icon {
+    height: 25px;
+    width: 25px;
+    margin: auto;
+    margin-right: 10px;
   }
 
   @media (min-width: 769px) {

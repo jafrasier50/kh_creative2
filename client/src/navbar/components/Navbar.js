@@ -4,6 +4,8 @@ import { withRouter } from "react-router";
 import { checkAuth } from "../../auth/checkAuth";
 import { StyledNavbar } from "../../pieces_dashboard/components/styled_components/StyledNavbar";
 import DrawerToggle from "./DrawerToggle";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+
 const cookies = new Cookies();
 
 class Navbar extends Component {
@@ -39,6 +41,42 @@ class Navbar extends Component {
               <div className="spacer" />
               <div className="toolbarNavigationItems">
                 <ul>
+                  <li>
+                    <AnchorLink
+                      offset={() => 56}
+                      href="#home"
+                      onClick={this.props.closeDrawerAfterLinkIsClicked}
+                    >
+                      HOME
+                    </AnchorLink>
+                  </li>
+                  <li>
+                    <AnchorLink
+                      offset={() => 56}
+                      href="#bio"
+                      onClick={this.props.closeDrawerAfterLinkIsClicked}
+                    >
+                      BIO
+                    </AnchorLink>
+                  </li>
+                  <li>
+                    <AnchorLink
+                      offset={() => 56}
+                      href="#art"
+                      onClick={this.props.closeDrawerAfterLinkIsClicked}
+                    >
+                      ART
+                    </AnchorLink>
+                  </li>
+                  <li>
+                    <AnchorLink
+                      offset={() => 56}
+                      href="#contact"
+                      onClick={this.props.closeDrawerAfterLinkIsClicked}
+                    >
+                      CONTACT
+                    </AnchorLink>
+                  </li>
                   <li>
                     {loggedIn && currentRoute !== "/home" ? (
                       <a href="home">Home</a>

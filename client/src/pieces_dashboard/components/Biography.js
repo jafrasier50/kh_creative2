@@ -18,7 +18,7 @@ class Biography extends Component {
               installation, then appropriating techniques and narrative devices
               from other media and forms of art, she creates transformative
               environments, inviting the viewer to step out of their current
-              reality and participate in a dimension of her own creation
+              reality and participate in a dimension of her own creation.
             </p>
           </div>
         </div>

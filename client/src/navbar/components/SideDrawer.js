@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { StyledSideDrawer } from "../../pieces_dashboard/components/styled_components/StyledSideDrawer";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import Instagram from "../../images/instagram.png";
+import Linkedin from "../../images/linkedin.png";
 
 // const closeDrawerAfterLinkIsClicked = () => {
 //   return (drawerClasses = "sideDrawer open");
@@ -53,6 +55,20 @@ class SideDrawer extends Component {
                 CONTACT
               </AnchorLink>
             </li>
+            <div className="socialIcons">
+              <a href="https://www.instagram.com/kelly_a_hanning_art/?hl=en">
+                <img
+                  className="icon"
+                  src={require("../../images/instagram.png")}
+                />
+              </a>
+              <a href="https://www.linkedin.com/in/kelly-a-hanning-15623897">
+                <img
+                  className="icon"
+                  src={require("../../images/linkedin.png")}
+                />
+              </a>
+            </div>
           </ul>
         </nav>
       </StyledSideDrawer>
