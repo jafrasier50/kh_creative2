@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Piece from "../../pieces_dashboard/components/Piece";
+import { StyledPiecesView } from "../../pieces_dashboard/components/styled_components/StyledPiecesView";
 import { StyledRenderedPieces } from "../../pieces_dashboard/components/styled_components/StyledRenderedPieces";
 
 class PiecesView extends Component {
@@ -21,7 +22,6 @@ class PiecesView extends Component {
       pieces.forEach(piece => {
         renderedPiecesArray.push(this.renderPiece(piece));
       });
-      console.log("got Pieces!");
       this.setState({ renderedPieces: renderedPiecesArray });
     }
   };
@@ -39,7 +39,13 @@ class PiecesView extends Component {
 
   render() {
     return (
-      <StyledRenderedPieces>{this.state.renderedPieces}</StyledRenderedPieces>
+      <StyledPiecesView>
+        <section className="card">
+          <StyledRenderedPieces className="card-content">
+            {this.state.renderedPieces}
+          </StyledRenderedPieces>
+        </section>
+      </StyledPiecesView>
     );
   }
 }

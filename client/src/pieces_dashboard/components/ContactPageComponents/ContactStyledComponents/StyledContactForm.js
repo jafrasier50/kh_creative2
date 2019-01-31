@@ -72,7 +72,7 @@ margin:auto;
   /* Larger than desktop */
   @media (min-width: 1000px) {
     width:100%;
-    height:80%;
+    max-height:800px;
     display:flex;
     justify-content:center;
 
