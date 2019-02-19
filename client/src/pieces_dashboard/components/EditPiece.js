@@ -148,6 +148,12 @@ class UploadPieceForm extends Component {
           <p>Uploading Image...</p>
         ) : (
           <StyledEditPieceForm>
+            <img
+              style={{ width: "50%" }}
+              src={this.props.pieceData.img_url}
+              alt=""
+            />
+
             <form onSubmit={this.formSubmit}>
               <input
                 type="text"
@@ -194,12 +200,17 @@ class UploadPieceForm extends Component {
                   placeholder="Upload an Image"
                 />
               )}
-              {!errorUploading ? (
-                <input type="submit" />
-              ) : (
-                <p>Error Uploading Image. Try again.</p>
-              )}
-              <button onClick={this.deletePiece}>Delete</button>
+              <br />
+              <div>
+                {!errorUploading ? (
+                  <input type="submit" />
+                ) : (
+                  <p>Error Uploading Image. Try again.</p>
+                )}
+                <button onClick={this.props.cancelEdit}>Cancel</button>
+                <button onClick={this.deletePiece}>Delete</button>
+              </div>
+              <br />
             </form>
           </StyledEditPieceForm>
         )}

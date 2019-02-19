@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import EditPiece from "./EditPiece";
-import { StyledPiece } from "./styled_components/StyledPiece";
+import { StyledDashboardPiece } from "./styled_components/StyledDashboardPiece";
 import { checkAuth } from "../../auth/checkAuth";
 
-class Piece extends Component {
+class DashboardPiece extends Component {
   constructor(props) {
     super(props);
     const {
@@ -67,7 +67,7 @@ class Piece extends Component {
         pieceData={this.props.pieceData}
       />
     ) : (
-      <StyledPiece key={id}>
+      <StyledDashboardPiece key={id}>
         <div className="styledPieceDiv">
           <div className="ImgTitle-img">
             <div className="pieceInfo">
@@ -89,9 +89,9 @@ class Piece extends Component {
             )}
           </div>
         </div>
-      </StyledPiece>
+      </StyledDashboardPiece>
     );
   }
 }
 
-export default Piece;
+export default DashboardPiece;

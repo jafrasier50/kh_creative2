@@ -4,6 +4,8 @@ import Piece from "./Piece";
 import Cookies from "universal-cookie";
 import { StyledPieceForm } from "./styled_components/StyledPieceForm";
 import { StyledRenderedPieces } from "../../pieces_dashboard/components/styled_components/StyledRenderedPieces";
+import { StyledDashboard } from "../components/styled_components/StyledDashboard";
+import DashboardPiece from "../components/DashboardPiece";
 
 const cookies = new Cookies();
 
@@ -24,6 +26,12 @@ class PiecesDashboard extends Component {
     errorUploading: false,
     uploaded: false,
     editing: false
+  };
+
+  cancelEdit = () => {
+    this.setState({
+      editing: false
+    });
   };
 
   onEdit = () => {
@@ -64,10 +72,11 @@ class PiecesDashboard extends Component {
 
   renderPiece = info => {
     return (
-      <Piece
+      <DashboardPiece
         loggedIn={this.props.loggedIn}
         onDoneEditing={this.onDoneEditing}
         onEdit={this.onEdit}
+        cancelEdit={this.cancelEdit}
         onDoneEditing={this.onDoneEditing}
         pieceData={info}
       />
@@ -181,67 +190,71 @@ class PiecesDashboard extends Component {
       price
     } = this.state;
     return (
-      <div>
-        {uploading ? <p>Uploading Image...</p> : null}
-        {!editing ? (
-          <StyledPieceForm>
-            <form onSubmit={this.formSubmit}>
-              <h4>Submit a Piece</h4>
-              <input
-                type="text"
-                onChange={this.handleChange}
-                name="title"
-                placeholder="enter title"
-                value={title}
-              />
-              <input
-                type="text"
-                onChange={this.handleChange}
-                name="description"
-                placeholder="enter description"
-                value={description}
-              />
-              <input
-                type="text"
-                onChange={this.handleChange}
-                name="category"
-                placeholder="enter category"
-                value={category}
-              />
-              <input
-                type="text"
-                onChange={this.handleChange}
-                name="availability"
-                placeholder="enter availability"
-                value={availability}
-              />
-              <input
-                type="text"
-                onChange={this.handleChange}
-                name="price"
-                placeholder="enter price"
-                value={price}
-              />
-              {uploaded ? (
-                <p>image upload successful! Ready to submit when you are...</p>
-              ) : (
+      <StyledDashboard>
+        <div>
+          {uploading ? <p>Uploading Image...</p> : null}
+          {!editing ? (
+            <StyledPieceForm>
+              <form onSubmit={this.formSubmit}>
+                <h4>Submit a Piece</h4>
                 <input
-                  onChange={this.uploadFile}
-                  type="file"
-                  id="file"
-                  placeholder="Upload an Image"
+                  type="text"
+                  onChange={this.handleChange}
+                  name="title"
+                  placeholder="enter title"
+                  value={title}
                 />
-              )}
-              {!errorUploading ? (
-                <input type="submit" />
-              ) : (
-                <p>Error Uploading Image. Try again.</p>
-              )}
-            </form>
-          </StyledPieceForm>
-        ) : null}
-        <StyledRenderedPieces>{this.state.renderedPieces}</StyledRenderedPieces>
-      </div>
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  name="description"
+                  placeholder="enter description"
+                  value={description}
+                />
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  name="category"
+                  placeholder="enter category"
+                  value={category}
+                />
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  name="availability"
+                  placeholder="enter availability"
+                  value={availability}
+                />
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  name="price"
+                  placeholder="enter price"
+                  value={price}
+                />
+                {uploaded ? (
+                  <p>
+                    image upload successful! Ready to submit when you are...
+                  </p>
+                ) : (
+                  <input
+                    onChange={this.uploadFile}
+                    type="file"
+                    id="file"
+                    placeholder="Upload an Image"
+                  />
+                )}
+                {!errorUploading ? (
+                  <input type="submit" />
+                ) : (
+                  <p>Error Uploading Image. Try again.</p>
+                )}
+              </form>
+            </StyledPieceForm>
+          ) : null}
+          <div className="dashBoardPieces">{this.state.renderedPieces}</div>
+        </div>
+      </StyledDashboard>
     );
   }
 }

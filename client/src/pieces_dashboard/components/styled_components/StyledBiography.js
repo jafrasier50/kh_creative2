@@ -12,6 +12,7 @@ export const StyledBiography = styled.div`
   background-repeat: no-repeat;
   display: flex;
   flex-wrap: wrap-reverse;
+  overflow: hidden;
 
   .bioHeader {
     font-size: 1.7rem;
@@ -253,7 +254,7 @@ export const StyledBiography = styled.div`
       padding: 25px;
       margin: auto;
       text-align: left;
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       color: whitesmoke;
     }
     .bioContent {

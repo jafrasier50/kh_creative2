@@ -4,6 +4,7 @@ export const StyledLandingPage = styled.div`
   @media (min-width: 320px) {
     height: 100vh;
     position: relative;
+    overflow: hidden;
 
     .landingPageHeader {
       padding: 25px;

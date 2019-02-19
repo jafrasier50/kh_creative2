@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import img from "../../../images/sideDrawerBackground.jpg";
 
-export const StyledPiece = styled.div`
+export const StyledDashboardPiece = styled.div`
   /* Mobile first queries */
   color: whitesmoke;
   background-color: rgba(0, 0, 0, 0.7);
@@ -127,7 +127,7 @@ export const StyledPiece = styled.div`
   @media (min-width: 750px) {
     box-shadow: 2px 0px 7px rgba(0, 0, 0, 0.5);
     color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: green;
     height: auto;
     width: 100%;
     min-width: 600px;
@@ -169,7 +169,6 @@ export const StyledPiece = styled.div`
       font-size: 2em;
     }
     img {
-      padding-left: 20px;
       padding-top: 20px;
       max-width: 100%;
       height: auto;
