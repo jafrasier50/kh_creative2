@@ -82,6 +82,7 @@ class DashboardPiece extends Component {
             <strong>Availability: {availability}</strong>
             <br />
             <strong>Price: {price}</strong>
+            <br />
             {this.state.editing || !this.props.loggedIn ? null : (
               <button className="editButton" onClick={this.clickedEdit}>
                 Edit

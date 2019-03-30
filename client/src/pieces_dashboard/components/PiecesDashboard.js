@@ -191,10 +191,10 @@ class PiecesDashboard extends Component {
     } = this.state;
     return (
       <StyledDashboard>
-        <div>
+        <div className="dashboard-pieces__wrapper">
           {uploading ? <p>Uploading Image...</p> : null}
           {!editing ? (
-            <StyledPieceForm>
+            <StyledPieceForm className="piece-form">
               <form onSubmit={this.formSubmit}>
                 <h4>Submit a Piece</h4>
                 <input
@@ -243,6 +243,9 @@ class PiecesDashboard extends Component {
                     id="file"
                     placeholder="Upload an Image"
                   />
+                )}
+                {this.state.img_url && (
+                  <img src={this.state.img_url} alt=" Upload Preview" />
                 )}
                 {!errorUploading ? (
                   <input type="submit" />

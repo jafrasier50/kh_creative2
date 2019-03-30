@@ -6,6 +6,7 @@ export const StyledContact = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  border-top: 5px solid black;
   height: 837px;
 
   .contactContent {

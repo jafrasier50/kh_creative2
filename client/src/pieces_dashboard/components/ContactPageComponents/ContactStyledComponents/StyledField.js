@@ -20,8 +20,8 @@ export const StyledField = styled.div`
     border-left: none;
     border-right: none;
     border-color: #646464;
-    height: 25px;
-    padding-bottom: 15px;
+    height: 35px;
+    padding-top: 15px;
     resize: none;
   }
 

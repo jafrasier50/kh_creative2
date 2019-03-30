@@ -73,8 +73,13 @@ margin:auto;
   @media (min-width: 1000px) {
     width:100%;
     max-height:800px;
+    
+  .contact-form{
+    height:100%;
+    width:100%;
     display:flex;
     justify-content:center;
+  }
 
   .contactHeader h1{
     font-size:2.3rem
@@ -85,29 +90,29 @@ margin:auto;
      max-width:650px;
    }
   .contactFormRight{
-    min-width:225px;
     width:250px;
+    min-width:225px;
   }
 
   .kelly-info-div{
-    margin-top:20%;
-    height:40%;
+    height:50%; 
+    margin:auto;
     }
 
   .kelly-info-div ul{
     margin: auto;
+    height:50%;
 }
   .kelly-info-div ul li{
-    margin-bottom: 30px;
     font-weight:700;
     font-size:1rem
   }
 
   .socialIconsDiv{
-    height:60%;
+    height:50%;
 }
   .socialIcons{
-    margin-top:30%;
+    height:100%;
   }
 
 

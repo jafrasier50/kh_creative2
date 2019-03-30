@@ -39,9 +39,9 @@ class PiecesView extends Component {
 
   render() {
     return (
-      <StyledPiecesView>
-        <section className="card">
-          <StyledRenderedPieces className="card-content">
+      <StyledPiecesView className="Styled-Pieces-View">
+        <section className="piece-container">
+          <StyledRenderedPieces className="pieces">
             {this.state.renderedPieces}
           </StyledRenderedPieces>
         </section>

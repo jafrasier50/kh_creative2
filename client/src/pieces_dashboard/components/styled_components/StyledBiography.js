@@ -3,7 +3,6 @@ import img from "../../../images/bioBackground.jpg";
 
 export const StyledBiography = styled.div`
   /* Mobile first queries */
-  position: relative;
   height: 100vh;
   background-image: url(${img});
   background-position: center;
@@ -11,269 +10,184 @@ export const StyledBiography = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  flex-wrap: wrap-reverse;
   overflow: hidden;
 
-  .bioHeader {
-    font-size: 1.7rem;
-    margin-top: 10px;
-    padding-top: 25px;
-    color: whitesmoke;
-  }
-
-  .bio {
-    max-width: 85%;
-    padding: 10px;
-    margin: auto;
-    text-align: left;
-    font-size: 0.9rem;
-    color: whitesmoke;
-  }
-  .bioContent {
+  .bio-wrapper {
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 25px;
-    min-width: 312px;
+    background: rgba(0, 0, 0, 0.8);
+    color: whitesmoke;
   }
-  .kelly {
-    display: none;
+  .bio-content {
+    padding-top: 7%;
+    margin: auto;
+    vertical-align: center;
   }
-  .bioParallax {
-    display: none;
+  .bioHeader {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .bio {
+    max-width: 90%;
+    padding: 10px;
+    margin: auto;
+    /* font-size: 0.9rem; */
+    font-size: 5vw;
+    text-align: center;
+    line-height: 1.3rem;
+  }
+
+  @media (min-width: 320px) and (min-height: 550px) {
+    .bio {
+      /* font-size: 1rem; */
+      font-size: 5vw;
+      line-height: 1.5rem;
+    }
+  }
+
+  @media (min-width: 360px) {
+    .bioHeader {
+      font-size: 2rem;
+    }
+    .bio {
+      /* font-size: 1.3rem; */
+      font-size: 5vw;
+      line-height: 1.7rem;
+    }
+  }
+
+  @media (min-width: 375px) and (min-height: 800px) {
+    .bio-content {
+      padding-top: 15%;
+      margin: auto;
+      vertical-align: center;
+    }
+    .bioHeader {
+      font-size: 2.5rem;
+    }
+    .bio {
+      /* font-size: 1.5rem; */
+      font-size: 6vw;
+      line-height: 2rem;
+    }
   }
 
   /* Larger than mobile */
   @media (min-width: 400px) {
-    position: relative;
-    height: 100vh;
-    background-image: url(${img});
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-wrap: wrap-reverse;
-
-    .bioHeader {
-      font-size: 2.3rem;
-      margin-top: auto;
-      padding-top: 40px;
-      color: whitesmoke;
-    }
-
-    .bio {
-      max-width: 85%;
-      padding: 15px;
+    .bio-content {
+      padding-top: 5%;
       margin: auto;
-      text-align: left;
-      font-size: 1.4rem;
-      color: whitesmoke;
+      vertical-align: center;
     }
-    .bioContent {
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 30px;
-      min-width: 312px;
+    .bioHeader {
+      font-size: 2rem;
     }
-    .kelly {
-      display: none;
-    }
-    .bioParallax {
-      display: none;
+    .bio {
+      /* font-size: 1.5rem; */
+      font-size: 5.2vw;
+      line-height: 1.9rem;
     }
   }
 
   /* Larger than phablet */
   @media (min-width: 550px) {
-    position: relative;
-    height: 100vh;
-    background-image: url(${img});
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-wrap: wrap-reverse;
-
     .bioHeader {
-      font-size: 2.5rem;
-      margin-top: auto;
-      padding-top: 45px;
-      color: whitesmoke;
+      font-size: 3.5rem;
     }
-
     .bio {
-      display: flex;
-      max-width: 85%;
-      padding: 25px;
-      margin: auto;
-      text-align: left;
-      font-size: 1.7rem;
-      color: whitesmoke;
+      /* font-size: 1.8rem; */
+      font-size: 5vw;
+      line-height: 2.8rem;
     }
-    .bioContent {
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 35px;
+  }
+
+  @media (min-width: 550px) and (max-height: 750px) {
+    .bio-content {
+      padding-top: 0;
     }
-    .kelly {
-      height: 100vh;
-      width: 50%;
-      background: rgba(0, 0, 0, 0.7);
+    .bioHeader {
+      font-size: 2.6rem;
     }
-    .bioParallax {
-      width: 100%;
-      height: 100%;
+    .bio {
+      /* font-size: 1.5rem; */
+      font-size: 4vw;
+      line-height: 2.8rem;
     }
   }
 
   /* Larger than tablet */
   @media (min-width: 750px) {
-    position: relative;
-    height: 100vh;
-    background-image: url(${img});
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-wrap: wrap-reverse;
-
-    .bioHeader {
-      font-size: 3rem;
-      margin-top: auto;
-      padding-top: 75px;
-      color: whitesmoke;
+    .bio-content {
     }
-
     .bio {
-      max-width: 85%;
-      padding: 25px;
-      margin: auto;
+      /* font-size: 2.3rem; */
+      font-size: 4vw;
+      line-height: 3.3rem;
+    }
+  }
+  /* @media (min-width: 750px) and (max-height: 750px) {
+    .bioHeader {
+      font-size: 2.6rem;
+    }
+    .bio {
+      font-size: 1.5rem;
+      font-size: 4vw;
+      line-height: 2.8rem;
+    }
+  } */
+
+  /* Ipad Pro */
+
+  @media (min-width: 1020px) and (max-height: 1370px) {
+    .bio-content {
+      padding-top: 5%;
+    }
+    .bioHeader {
+      font-size: 4rem;
+      margin-bottom: 3rem;
+    }
+    .bio {
+      /* font-size: 3rem; */
+      font-size: 3.7vw;
+      line-height: 3.5rem;
       text-align: left;
-      font-size: 1.9rem;
-      color: whitesmoke;
-    }
-    .bioContent {
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 40px;
-      min-width: 312px;
-    }
-    .kelly {
-      height: 100vh;
-      width: 50%;
-      min-width: 312px;
-      background: rgba(0, 0, 0, 0.7);
-    }
-    .bioParallax {
-      height: 100%;
     }
   }
 
-  /* Larger than desktop */
-  @media (min-width: 1000px) {
-    position: relative;
-    height: 100vh;
-    background-image: url(${img});
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-wrap: wrap-reverse;
-
+  @media (min-width: 1000px) and (min-height: 500px) and (max-height: 900) {
     .bioHeader {
-      font-size: 3rem;
-      margin-top: auto;
-      padding-top: 75px;
-      color: whitesmoke;
+      font-size: 3.5rem;
+      margin-bottom: 3rem;
     }
-
     .bio {
-      max-width: 85%;
-      padding: 25px;
-      margin: auto;
-      text-align: left;
-      font-size: 2.3rem;
-      color: whitesmoke;
-    }
-    .bioContent {
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 50px;
-      min-width: 312px;
-    }
-    .kelly {
-      height: 100vh;
-      width: 50%;
-      min-width: 312px;
-      background: rgba(0, 0, 0, 0.7);
-    }
-    .bioParallax {
-      height: 100%;
+      /* font-size: 3rem; */
+      font-size: 3vh;
+      line-height: 4.5rem;
     }
   }
 
   /* Larger than Desktop HD */
   @media (min-width: 1200px) {
-    position: relative;
-    height: 100vh;
-    background-image: url(${img});
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-wrap: wrap-reverse;
-
     .bioHeader {
       font-size: 4rem;
-      margin-top: auto;
-      padding-top: 75px;
-      color: whitesmoke;
+      margin-bottom: 1rem;
     }
-
     .bio {
-      max-width: 85%;
-      padding: 25px;
-      margin: auto;
       text-align: left;
-      font-size: 2.3rem;
-      color: whitesmoke;
+      /* font-size: 2.8rem; */
+      font-size: 5vh;
+
+      line-height: 3.5rem;
     }
-    .bioContent {
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 55px;
-      min-width: 312px;
+  }
+
+  @media (min-width: 1700px) {
+    .bio-content {
+      padding-top: 1%;
     }
-    .kelly {
-      height: 100vh;
-      width: 50%;
-      min-width: 312px;
-      background: rgba(0, 0, 0, 0.7);
-    }
-    .bioParallax {
-      height: 100%;
+    .bio {
+      line-height: 4rem;
     }
   }
 `;

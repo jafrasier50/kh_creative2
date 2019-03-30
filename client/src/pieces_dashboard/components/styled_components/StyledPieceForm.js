@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import img from "../../../images/sideDrawerBackground.jpg";
 
 export const StyledPieceForm = styled.div`
   h4 {
@@ -7,7 +8,7 @@ export const StyledPieceForm = styled.div`
   }
   form {
     width: 260px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url(${img});
     padding: 10px;
     height: auto;
     margin: 0 auto;
@@ -31,6 +32,8 @@ export const StyledPieceForm = styled.div`
   }
 
   @media (min-width: 610px) {
+    width: 20%;
+    height: 100%;
     form {
       width: auto;
       margin-left: auto;
@@ -42,6 +45,17 @@ export const StyledPieceForm = styled.div`
     }
     input[type="text"] {
       max-width: 550px;
+    }
+  }
+
+  @media (min-width: 900px) {
+    height: 100%;
+    width: 20%;
+    position: relative;
+    form {
+      position: fixed;
+      height: 100%;
+      width: inherit;
     }
   }
 `;
