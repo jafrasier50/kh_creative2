@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { StyledFooter } from "./styled_components/StyledFooter";
-import Instagram from "../../images/instagram.png";
-import Linkedin from "../../images/linkedin.png";
 
 class Footer extends Component {
   render() {
@@ -16,12 +14,14 @@ class Footer extends Component {
                 <img
                   className="icon"
                   src={require("../../images/instagram.png")}
+                  alt=""
                 />
               </a>
               <a href="https://www.linkedin.com/in/kelly-a-hanning-15623897">
                 <img
                   className="icon"
                   src={require("../../images/linkedin.png")}
+                  alt=""
                 />
               </a>
             </div>

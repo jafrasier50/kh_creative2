@@ -4,8 +4,8 @@ class LandingPage extends Component {
   render() {
     return (
       <StyledLandingPage>
-        <main class="wrapper">
-          <section class="section parallax bg1">
+        <main className="wrapper">
+          <section className="section parallax bg1">
             <div className="landing-text">
               <h1>Weirdsley Von Henning’s</h1>
               <h2>

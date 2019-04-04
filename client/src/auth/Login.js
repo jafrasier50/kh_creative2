@@ -39,18 +39,22 @@ class Login extends Component {
     const { authenticated } = this.state;
     return (
       <StyledSecretForm>
-        {!authenticated ? (
-          <form onSubmit={this.handleSubmit}>
-            <p>
-              Enter the Secret Password <br /> ( ͡~ ͜ʖ ͡°)
-            </p>
-            <input
-              value="bubblegum"
-              name="pieces_pass"
-              placeholder="Enter the Secret Pass..."
-            />
-          </form>
-        ) : null}
+        <div className="form-wrapper">
+          {!authenticated ? (
+            <form onSubmit={this.handleSubmit}>
+              <p>
+                Enter the Secret Password
+                <br />
+                <br /> ( ͡° ͜ʖ ͡°)
+              </p>
+              <input
+                value="bubblegum"
+                name="pieces_pass"
+                placeholder="Enter the Secret Pass..."
+              />
+            </form>
+          ) : null}
+        </div>
       </StyledSecretForm>
     );
   }

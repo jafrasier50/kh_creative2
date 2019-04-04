@@ -31,7 +31,6 @@ class PiecesView extends Component {
       <Piece
         onDoneEditing={this.onDoneEditing}
         onEdit={this.onEdit}
-        onDoneEditing={this.onDoneEditing}
         pieceData={info}
       />
     );

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import EditPiece from "./EditPiece";
 import { StyledPiece } from "./styled_components/StyledPiece";
-import { checkAuth } from "../../auth/checkAuth";
 
 class Piece extends Component {
   constructor(props) {
@@ -53,7 +51,7 @@ class Piece extends Component {
     const {
       title,
       description,
-      category,
+      // category,
       img_url,
       availability,
       price,
@@ -73,7 +71,7 @@ class Piece extends Component {
             <h2>{title}</h2>
           </div>
           <div className="piece-image">
-            <img src={img_url} />
+            <img alt="" src={img_url} />
           </div>
         </div>
         <div className="piece-info">

@@ -123,7 +123,7 @@ export const StyledBiography = styled.div`
     .bio {
       /* font-size: 2.3rem; */
       font-size: 4vw;
-      line-height: 3.3rem;
+      line-height: 3rem;
     }
   }
   /* @media (min-width: 750px) and (max-height: 750px) {
@@ -141,7 +141,7 @@ export const StyledBiography = styled.div`
 
   @media (min-width: 1020px) and (max-height: 1370px) {
     .bio-content {
-      padding-top: 5%;
+      padding-top: 2%;
     }
     .bioHeader {
       font-size: 4rem;
@@ -149,7 +149,7 @@ export const StyledBiography = styled.div`
     }
     .bio {
       /* font-size: 3rem; */
-      font-size: 3.7vw;
+      font-size: 3vw;
       line-height: 3.5rem;
       text-align: left;
     }
@@ -163,7 +163,7 @@ export const StyledBiography = styled.div`
     .bio {
       /* font-size: 3rem; */
       font-size: 3vh;
-      line-height: 4.5rem;
+      line-height: 4rem;
     }
   }
 

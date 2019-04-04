@@ -1,19 +1,8 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { StyledEditPieceForm } from "./styled_components/StyledEditPieceForm";
 const cookies = new Cookies();
-
-const StyledForm = styled.div`
-  background-color: lightgray;
-  padding: 15px;
-  max-width: 200px;
-  margin: 10px;
-  img {
-    max-width: 150px;
-  }
-`;
 
 class UploadPieceForm extends Component {
   constructor(props) {
@@ -139,8 +128,7 @@ class UploadPieceForm extends Component {
       category,
       availability,
       price,
-      deleted,
-      saved
+      deleted
     } = this.state;
     return !deleted ? (
       <div>

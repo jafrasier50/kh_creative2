@@ -9,10 +9,6 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 const cookies = new Cookies();
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   logout = e => {
     e.preventDefault();
     cookies.remove("pieces_secret");
@@ -27,6 +23,7 @@ class Navbar extends Component {
     const { loggedIn } = this.props;
     const currentRoute = window.location.pathname;
     console.log(this.props.drawerClickHandler);
+    console.log(currentRoute, loggedIn);
     return (
       <div>
         <StyledNavbar>
@@ -41,42 +38,48 @@ class Navbar extends Component {
               <div className="spacer" />
               <div className="toolbarNavigationItems">
                 <ul>
-                  <li>
-                    <AnchorLink
-                      offset={() => 56}
-                      href="#home"
-                      onClick={this.props.closeDrawerAfterLinkIsClicked}
-                    >
-                      HOME
-                    </AnchorLink>
-                  </li>
-                  <li>
-                    <AnchorLink
-                      offset={() => 56}
-                      href="#bio"
-                      onClick={this.props.closeDrawerAfterLinkIsClicked}
-                    >
-                      BIO
-                    </AnchorLink>
-                  </li>
-                  <li>
-                    <AnchorLink
-                      offset={() => 56}
-                      href="#art"
-                      onClick={this.props.closeDrawerAfterLinkIsClicked}
-                    >
-                      ART
-                    </AnchorLink>
-                  </li>
-                  <li>
-                    <AnchorLink
-                      offset={() => 56}
-                      href="#contact"
-                      onClick={this.props.closeDrawerAfterLinkIsClicked}
-                    >
-                      CONTACT
-                    </AnchorLink>
-                  </li>
+                  {(loggedIn === true &&
+                    currentRoute === "/pieces_dashboard") ||
+                  currentRoute === "/login" ? null : (
+                    <React.Fragment>
+                      <li>
+                        <AnchorLink
+                          offset={() => 56}
+                          href="#home"
+                          onClick={this.props.closeDrawerAfterLinkIsClicked}
+                        >
+                          HOME
+                        </AnchorLink>
+                      </li>
+                      <li>
+                        <AnchorLink
+                          offset={() => 56}
+                          href="#bio"
+                          onClick={this.props.closeDrawerAfterLinkIsClicked}
+                        >
+                          BIO
+                        </AnchorLink>
+                      </li>
+                      <li>
+                        <AnchorLink
+                          offset={() => 56}
+                          href="#art"
+                          onClick={this.props.closeDrawerAfterLinkIsClicked}
+                        >
+                          ART
+                        </AnchorLink>
+                      </li>
+                      <li>
+                        <AnchorLink
+                          offset={() => 56}
+                          href="#contact"
+                          onClick={this.props.closeDrawerAfterLinkIsClicked}
+                        >
+                          CONTACT
+                        </AnchorLink>
+                      </li>
+                    </React.Fragment>
+                  )}
                   <li>
                     {loggedIn && currentRoute !== "/home" ? (
                       <a href="home">Home</a>

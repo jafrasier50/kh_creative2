@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { StyledContactForm } from "./ContactStyledComponents/StyledContactForm";
 import Field from "./Field";
 import Button from "./Button";
-import Instagram from "../../../images/instagram.png";
-import Linkedin from "../../../images/linkedin.png";
 
 class ContactForm extends Component {
   constructor(props) {
@@ -53,7 +51,6 @@ class ContactForm extends Component {
               />
               {/*Message TextArea*/}
               <Field
-                textarea
                 className="email-message"
                 lable="Message"
                 onChange={event =>
@@ -101,12 +98,14 @@ class ContactForm extends Component {
                 </h4>
                 <a href="https://www.instagram.com/kelly_a_hanning_art/?hl=en">
                   <img
+                    alt=""
                     className="icon"
                     src={require("../../../images/instagram.png")}
                   />
                 </a>
                 <a href="https://www.linkedin.com/in/kelly-a-hanning-15623897">
                   <img
+                    alt=""
                     className="icon"
                     src={require("../../../images/linkedin.png")}
                   />

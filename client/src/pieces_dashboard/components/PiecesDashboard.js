@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Piece from "./Piece";
 import Cookies from "universal-cookie";
 import { StyledPieceForm } from "./styled_components/StyledPieceForm";
-import { StyledRenderedPieces } from "../../pieces_dashboard/components/styled_components/StyledRenderedPieces";
 import { StyledDashboard } from "../components/styled_components/StyledDashboard";
 import DashboardPiece from "../components/DashboardPiece";
 
@@ -74,7 +72,6 @@ class PiecesDashboard extends Component {
     return (
       <DashboardPiece
         loggedIn={this.props.loggedIn}
-        onDoneEditing={this.onDoneEditing}
         onEdit={this.onEdit}
         cancelEdit={this.cancelEdit}
         onDoneEditing={this.onDoneEditing}
@@ -127,7 +124,7 @@ class PiecesDashboard extends Component {
       img_url: "",
       availability: "",
       price: "",
-      renderedPieces: [],
+      // renderedPieces: [],
       uploading: false,
       errorUploading: false,
       uploaded: false,
@@ -201,57 +198,69 @@ class PiecesDashboard extends Component {
                   type="text"
                   onChange={this.handleChange}
                   name="title"
-                  placeholder="enter title"
+                  placeholder=" Enter title"
                   value={title}
                 />
                 <input
                   type="text"
                   onChange={this.handleChange}
                   name="description"
-                  placeholder="enter description"
+                  placeholder=" Enter description"
                   value={description}
                 />
                 <input
                   type="text"
                   onChange={this.handleChange}
                   name="category"
-                  placeholder="enter category"
+                  placeholder=" Enter category"
                   value={category}
                 />
                 <input
                   type="text"
                   onChange={this.handleChange}
                   name="availability"
-                  placeholder="enter availability"
+                  placeholder=" enter availability"
                   value={availability}
                 />
                 <input
                   type="text"
                   onChange={this.handleChange}
                   name="price"
-                  placeholder="enter price"
+                  placeholder=" Enter price"
                   value={price}
                 />
-                {uploaded ? (
-                  <p>
-                    image upload successful! Ready to submit when you are...
-                  </p>
-                ) : (
-                  <input
-                    onChange={this.uploadFile}
-                    type="file"
-                    id="file"
-                    placeholder="Upload an Image"
-                  />
-                )}
-                {this.state.img_url && (
-                  <img src={this.state.img_url} alt=" Upload Preview" />
-                )}
-                {!errorUploading ? (
-                  <input type="submit" />
-                ) : (
-                  <p>Error Uploading Image. Try again.</p>
-                )}
+                <div className="form-actions">
+                  {uploaded ? (
+                    <p>
+                      image upload successful! Ready to submit when you are...
+                    </p>
+                  ) : (
+                    <React.Fragment>
+                      <div className="custom-upload__button">
+                        <label htmlFor="file">Upload Art</label>
+                        <input
+                          onChange={this.uploadFile}
+                          type="file"
+                          id="file"
+                          placeholder="Upload an Image"
+                        />
+                      </div>
+                    </React.Fragment>
+                  )}
+                  {this.state.img_url && (
+                    <img
+                      className="upload-preview"
+                      src={this.state.img_url}
+                      alt=" Upload Preview"
+                    />
+                  )}
+                  <br />
+                  {!errorUploading ? (
+                    <input type="submit" />
+                  ) : (
+                    <p>Error Uploading Image. Try again.</p>
+                  )}
+                </div>
               </form>
             </StyledPieceForm>
           ) : null}

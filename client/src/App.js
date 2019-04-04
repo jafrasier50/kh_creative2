@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./navbar/components/Navbar";
 import PiecesView from "./all_pieces/components/PiecesView";
@@ -11,7 +11,6 @@ import LandingPage from "./pieces_dashboard/components/LandingPage";
 import Biography from "./pieces_dashboard/components/Biography";
 import Footer from "./pieces_dashboard/components/Footer";
 import Contact from "./pieces_dashboard/components/Contact";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 
 class App extends Component {
   state = {
