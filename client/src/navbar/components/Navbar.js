@@ -22,8 +22,7 @@ class Navbar extends Component {
   render() {
     const { loggedIn } = this.props;
     const currentRoute = window.location.pathname;
-    console.log(this.props.drawerClickHandler);
-    console.log(currentRoute, loggedIn);
+
     return (
       <div>
         <StyledNavbar>

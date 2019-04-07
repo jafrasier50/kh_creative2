@@ -12,7 +12,6 @@ class SideDrawer extends Component {
     if (this.props.show) {
       drawerClasses = "sideDrawer open";
     }
-    console.log("this is props", this.props);
     return (
       <StyledSideDrawer>
         <nav className={drawerClasses}>

@@ -6,8 +6,8 @@ import { StyledDashboard } from "../components/styled_components/StyledDashboard
 import DashboardPiece from "../components/DashboardPiece";
 
 const cookies = new Cookies();
-
 class PiecesDashboard extends Component {
+  _isMounted = false;
   constructor() {
     super();
     this.getPieces();
@@ -76,6 +76,7 @@ class PiecesDashboard extends Component {
         cancelEdit={this.cancelEdit}
         onDoneEditing={this.onDoneEditing}
         pieceData={info}
+        key={info.id}
       />
     );
   };
@@ -179,7 +180,6 @@ class PiecesDashboard extends Component {
       uploading,
       uploaded,
       errorUploading,
-      editing,
       title,
       description,
       category,
@@ -190,80 +190,78 @@ class PiecesDashboard extends Component {
       <StyledDashboard>
         <div className="dashboard-pieces__wrapper">
           {uploading ? <p>Uploading Image...</p> : null}
-          {!editing ? (
-            <StyledPieceForm className="piece-form">
-              <form onSubmit={this.formSubmit}>
-                <h4>Submit a Piece</h4>
-                <input
-                  type="text"
-                  onChange={this.handleChange}
-                  name="title"
-                  placeholder=" Enter title"
-                  value={title}
-                />
-                <input
-                  type="text"
-                  onChange={this.handleChange}
-                  name="description"
-                  placeholder=" Enter description"
-                  value={description}
-                />
-                <input
-                  type="text"
-                  onChange={this.handleChange}
-                  name="category"
-                  placeholder=" Enter category"
-                  value={category}
-                />
-                <input
-                  type="text"
-                  onChange={this.handleChange}
-                  name="availability"
-                  placeholder=" enter availability"
-                  value={availability}
-                />
-                <input
-                  type="text"
-                  onChange={this.handleChange}
-                  name="price"
-                  placeholder=" Enter price"
-                  value={price}
-                />
-                <div className="form-actions">
-                  {uploaded ? (
-                    <p>
-                      image upload successful! Ready to submit when you are...
-                    </p>
-                  ) : (
-                    <React.Fragment>
-                      <div className="custom-upload__button">
-                        <label htmlFor="file">Upload Art</label>
-                        <input
-                          onChange={this.uploadFile}
-                          type="file"
-                          id="file"
-                          placeholder="Upload an Image"
-                        />
-                      </div>
-                    </React.Fragment>
-                  )}
-                  {this.state.img_url && (
-                    <img
-                      className="upload-preview"
-                      src={this.state.img_url}
-                      alt=" Upload Preview"
-                    />
-                  )}
-                  <br />
-                  {!errorUploading ? (
-                    <input type="submit" />
-                  ) : (
-                    <p>Error Uploading Image. Try again.</p>
-                  )}
-                </div>
-              </form>
-            </StyledPieceForm>
-          ) : null}
+          <StyledPieceForm className="piece-form">
+            <form onSubmit={this.formSubmit}>
+              <h4>Submit a Piece</h4>
+              <input
+                type="text"
+                onChange={this.handleChange}
+                name="title"
+                placeholder=" Enter title"
+                value={title}
+              />
+              <input
+                type="text"
+                onChange={this.handleChange}
+                name="description"
+                placeholder=" Enter description"
+                value={description}
+              />
+              <input
+                type="text"
+                onChange={this.handleChange}
+                name="category"
+                placeholder=" Enter category"
+                value={category}
+              />
+              <input
+                type="text"
+                onChange={this.handleChange}
+                name="availability"
+                placeholder=" enter availability"
+                value={availability}
+              />
+              <input
+                type="text"
+                onChange={this.handleChange}
+                name="price"
+                placeholder=" Enter price"
+                value={price}
+              />
+              <div className="form-actions">
+                {uploaded ? (
+                  <p>
+                    image upload successful! Ready to submit when you are...
+                  </p>
+                ) : (
+                  <React.Fragment>
+                    <div className="custom-upload__button">
+                      <label htmlFor="file">Upload Art</label>
+                      <input
+                        onChange={this.uploadFile}
+                        type="file"
+                        id="file"
+                        placeholder="Upload an Image"
+                      />
+                    </div>
+                  </React.Fragment>
+                )}
+                {this.state.img_url && (
+                  <img
+                    className="upload-preview"
+                    src={this.state.img_url}
+                    alt=" Upload Preview"
+                  />
+                )}
+                <br />
+                {!errorUploading ? (
+                  <input type="submit" />
+                ) : (
+                  <p>Error Uploading Image. Try again.</p>
+                )}
+              </div>
+            </form>
+          </StyledPieceForm>
           <div className="dashBoardPieces">{this.state.renderedPieces}</div>
         </div>
       </StyledDashboard>

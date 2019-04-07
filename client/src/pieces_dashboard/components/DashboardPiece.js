@@ -42,6 +42,11 @@ class DashboardPiece extends Component {
     this.props.onEdit();
   };
 
+  cancelEdit = () => {
+    this.setState({ editing: false });
+    this.props.cancelEdit();
+  };
+
   clickedDelete = () => {
     this.props.onDelete();
     this.deletePiece();
@@ -59,7 +64,7 @@ class DashboardPiece extends Component {
     } = this.state;
     return this.state.editing ? (
       <EditPiece
-        cancelEdit={this.props.cancelEdit}
+        cancelEdit={this.cancelEdit}
         onDelete={this.onDelete}
         onUpdate={this.onUpdate}
         pieceData={this.props.pieceData}

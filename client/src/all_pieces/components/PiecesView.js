@@ -32,6 +32,7 @@ class PiecesView extends Component {
         onDoneEditing={this.onDoneEditing}
         onEdit={this.onEdit}
         pieceData={info}
+        key={info.id}
       />
     );
   };

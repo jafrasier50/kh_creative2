@@ -4,7 +4,9 @@ import Cookies from "universal-cookie";
 import { StyledEditPieceForm } from "./styled_components/StyledEditPieceForm";
 const cookies = new Cookies();
 
-class UploadPieceForm extends Component {
+class EditPiece extends Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     let pieceData = this.props.pieceData;
@@ -20,6 +22,14 @@ class UploadPieceForm extends Component {
       uploaded: false,
       deleted: false
     };
+  }
+
+  componentDidMount() {
+    this._isMounted = true;
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   handleChange = e => {
@@ -39,29 +49,30 @@ class UploadPieceForm extends Component {
       errorUploading: false,
       uploaded: false
     });
+    if (this._isMounted) {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/frasier/image/upload",
+        {
+          method: "POST",
+          body: data
+        }
+      );
 
-    const res = await fetch(
-      "https://api.cloudinary.com/v1_1/frasier/image/upload",
-      {
-        method: "POST",
-        body: data
+      const file = await res.json();
+      if (file && file.secure_url) {
+        this.setState({
+          img_url: file.secure_url,
+          uploading: false,
+          errorUploading: false,
+          uploaded: true
+        });
+      } else {
+        this.setState({
+          uploading: false,
+          errorUploading: true,
+          uploaded: false
+        });
       }
-    );
-
-    const file = await res.json();
-    if (file && file.secure_url) {
-      this.setState({
-        img_url: file.secure_url,
-        uploading: false,
-        errorUploading: false,
-        uploaded: true
-      });
-    } else {
-      this.setState({
-        uploading: false,
-        errorUploading: true,
-        uploaded: false
-      });
     }
   };
 
@@ -118,6 +129,12 @@ class UploadPieceForm extends Component {
       console.log(result);
     }
   };
+
+  cancelEdit = e => {
+    e.preventDefault();
+    this.props.cancelEdit();
+  };
+
   render() {
     const {
       uploading,
@@ -195,7 +212,7 @@ class UploadPieceForm extends Component {
                 ) : (
                   <p>Error Uploading Image. Try again.</p>
                 )}
-                <button onClick={this.props.cancelEdit}>Cancel</button>
+                <button onClick={this.cancelEdit}>Cancel</button>
                 <button onClick={this.deletePiece}>Delete</button>
               </div>
               <br />
@@ -207,4 +224,4 @@ class UploadPieceForm extends Component {
   }
 }
 
-export default UploadPieceForm;
+export default EditPiece;
