@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import img from "../../../images/LandingPageImage.jpg";
 export const StyledLandingPage = styled.div`
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
   height: calc(100vh - 56px);
 
   /* Mobile first queries */
@@ -33,10 +35,10 @@ export const StyledLandingPage = styled.div`
   }
 
   .landing-text {
-  
+    box-shadow: 1px 1px 5px black;
     background: rgba(0, 0, 0, 0.7);
     height: auto;
-    width: 80%;
+    width: 70%;
     max-width:1200px;
     border-radius: 6px;
     opacity: 1;
@@ -47,22 +49,23 @@ export const StyledLandingPage = styled.div`
   }
 
   .section h1 {
-    font-size: 3rem;
+    font-family: 'VT323', monospace;
+    font-size: 3.5rem;
     padding: 0;
     margin-top: 20px;
     margin-bottom: 20px;
   }
   .section h2 {
-    font-size: 1.5rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.9rem;
     padding: 0;
     margin-top: 0;
   }
   .def-not-cursed {
-    text-decoration: underline;
     margin: 0;
-    margin-bottom: 0.5rem;
     color:#AC3521;
   }
+ 
 
   .parallax::after {
     /* Display and position the pseudo-element */
@@ -103,17 +106,52 @@ export const StyledLandingPage = styled.div`
       opacity: 1;
     }
   }
+  /* iPhone X */
+  @media (width: 375px) and (height: 812px) {
+    .landing-text {
+    box-shadow: 1px 1px 5px black;
+    background: rgba(0, 0, 0, 0.7);
+    height: auto;
+    width: 75%;
+    height:60%
+    max-width:1200px;
+    border-radius: 6px;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 3s;
+  }
 
+  .section h1 {
+    font-family: 'VT323', monospace;
+    font-size: 4rem;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .section h2 {
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    padding: 0;
+    margin-top: 0;
+    line-height:50px;
+  }
+  .def-not-cursed {
+    margin: 0;
+    color:#AC3521;
+  }
+  }
   /* Larger than mobile */
   @media (min-width: 392px) {
     .section h1 {
-      font-size: 3.2rem;
+      font-size: 3.5rem;
       padding: 0.3rem;
       margin-top: 20px;
       margin-bottom: 20px;
     }
     .section h2 {
-      font-size: 1.7rem;
+      font-size:2rem;
       padding: 0.3rem;
       margin-top: 0;
     }
@@ -155,7 +193,7 @@ export const StyledLandingPage = styled.div`
       margin-bottom: 1.2rem;
     }
     .section h2 {
-      line-height:100px;
+      line-height:75px;
       font-size: 4rem;
       padding: 0.3rem;
       margin-top: 0;

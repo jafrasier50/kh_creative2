@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const StyledNavbar = styled.div`
+  @import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+  font-family: "Roboto Mono", monospace;
+
   .toolbar {
     position: fixed;
     top: 0;
@@ -25,7 +28,7 @@ export const StyledNavbar = styled.div`
   .toolbarLogo a {
     color: whitesmoke;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 200;
   }
 

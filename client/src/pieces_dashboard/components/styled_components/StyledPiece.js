@@ -2,6 +2,8 @@ import styled from "styled-components";
 import img from "../../../images/sideDrawerBackground.jpg";
 
 export const StyledPiece = styled.div`
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
   color: whitesmoke;
   height: calc(100vh - 75px);
   margin-left: 20vw;
@@ -21,6 +23,7 @@ export const StyledPiece = styled.div`
     "stats";
 
   h2 {
+    font-family: 'Source Code Pro', monospace;
     grid-area: title;
     font-size: 1.2rem;
     font-weight: 300;
@@ -42,6 +45,7 @@ export const StyledPiece = styled.div`
   }
 
   p {
+    font-family: 'Source Code Pro', monospace;
     grid-area: description;
     font-size: 0.9rem;
     margin: 0;
@@ -49,6 +53,7 @@ export const StyledPiece = styled.div`
   }
 
   .pieceStats {
+    font-family: 'Source Code Pro', monospace;
     grid-area: stats;
     font-size: 0.8rem;
     margin: 0;

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import img from "../../../images/ContactBackground.jpg";
 export const StyledContact = styled.div`
+  @import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+  font-family: "Roboto Mono", monospace;
   /* Mobile first queries */
   background-image: url(${img});
   background-repeat: no-repeat;

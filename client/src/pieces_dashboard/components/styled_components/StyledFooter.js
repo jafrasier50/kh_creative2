@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.div`
+  @import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+  font-family: "Roboto Mono", monospace;
+
   color: white;
 
   .footer {
@@ -30,7 +33,9 @@ export const StyledFooter = styled.div`
   h1 {
     color: whitesmoke;
   }
-
+  h4 {
+    font-size: 0.9rem;
+  }
   .credits {
     font-size: 0.7rem;
     width: 100%;

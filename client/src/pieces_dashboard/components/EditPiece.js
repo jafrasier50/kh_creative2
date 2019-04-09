@@ -206,7 +206,7 @@ class EditPiece extends Component {
                 />
               )}
               <br />
-              <div>
+              <div className="cta__buttons">
                 {!errorUploading ? (
                   <input type="submit" />
                 ) : (

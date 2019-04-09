@@ -48,7 +48,6 @@ class Login extends Component {
                 <br /> ( ͡° ͜ʖ ͡°)
               </p>
               <input
-                value="bubblegum"
                 name="pieces_pass"
                 placeholder="Enter the Secret Pass..."
               />

@@ -7,10 +7,11 @@ class LandingPage extends Component {
         <main className="wrapper">
           <section className="section parallax bg1">
             <div className="landing-text">
-              <h1>Weirdsley Von Henning’s</h1>
+              <h1>WEIRDSLEY VON HENNING’S</h1>
               <h2>
                 Twice-Blessed <br />
-                Definitely<strong className="def-not-cursed"> Not </strong>
+                Definitely
+                <strong className="def-not-cursed"> Not </strong>
                 Cursed
                 <br />
                 Painting Emporium

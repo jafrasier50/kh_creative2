@@ -18,23 +18,27 @@ export const StyledEditPieceForm = styled.div`
     margin: 0 auto;
   }
   input[type="text"] {
-    width: 50%;
+    /* width: 50%;
     background-color: whitesmoke;
     border: border-box;
+    border-color: black; */
+    width: 50%;
+    height: 1.5rem;
+    background-color: lightgrey;
+    border: solid black 1px;
     border-color: black;
   }
   input[type="file"] {
-    width: 50%;
-    background-color: whitesmoke;
-    border: border-box;
-    border-color: black;
+    display: none;
   }
   
   input[type="submit"] {
     height: 29px;
     width: 30%;
+    color: whitesmoke;
     background: darkred;
     border: border-box 1px;
+    border-radius:8px;
     border-color: black;
   }
 
@@ -67,10 +71,26 @@ export const StyledEditPieceForm = styled.div`
     font-weight: 500;
     font-size: 0.8rem;
   }
+
+  button{
+    color: whitesmoke;
+    background: darkred;
+    border: border-box 1px;
+    border-radius:8px;
+
+    border-color: black;
+    height: 29px;
+    width: 30%;
+  }
   .editButton {
+    color:whitesmoke;
     background: darkred;
     border: border-box 1px;
     border-color: black;
+    border-radius:8px;
   }
+.cta__buttons{
+  margin-top:15px;
+}
 }
 `;

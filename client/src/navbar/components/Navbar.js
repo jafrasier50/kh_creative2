@@ -32,7 +32,7 @@ class Navbar extends Component {
                 <DrawerToggle click={this.props.drawerClickHandler} />
               </div>
               <div className="toolbarLogo">
-                <a href="/home"> KH CREATIVE</a>
+                <a href="/home"> WEIRDSLEY VON HENNING’S </a>
               </div>
               <div className="spacer" />
               <div className="toolbarNavigationItems">

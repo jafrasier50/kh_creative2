@@ -2,6 +2,8 @@ import styled from "styled-components";
 import img from "../../../images/bioBackground.jpg";
 
 export const StyledBiography = styled.div`
+  @import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+
   /* Mobile first queries */
   height: 100vh;
   background-image: url(${img});
@@ -19,29 +21,29 @@ export const StyledBiography = styled.div`
     color: whitesmoke;
   }
   .bio-content {
-    padding-top: 7%;
+    padding-top: 5%;
     margin: auto;
     vertical-align: center;
   }
   .bioHeader {
+    font-family: "Roboto Mono", monospace;
     font-size: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
   .bio {
     max-width: 90%;
     padding: 10px;
     margin: auto;
-    /* font-size: 0.9rem; */
-    font-size: 5vw;
+    font-family: "Roboto Mono", monospace;
+    font-size: 4vw;
     text-align: center;
     line-height: 1.3rem;
   }
 
   @media (min-width: 320px) and (min-height: 550px) {
     .bio {
-      /* font-size: 1rem; */
-      font-size: 5vw;
+      font-size: 4vw;
       line-height: 1.5rem;
     }
   }
@@ -52,7 +54,7 @@ export const StyledBiography = styled.div`
     }
     .bio {
       /* font-size: 1.3rem; */
-      font-size: 5vw;
+      font-size: 4vw;
       line-height: 1.7rem;
     }
   }
@@ -68,7 +70,7 @@ export const StyledBiography = styled.div`
     }
     .bio {
       /* font-size: 1.5rem; */
-      font-size: 6vw;
+      font-size: 4.2vw;
       line-height: 2rem;
     }
   }
@@ -85,8 +87,8 @@ export const StyledBiography = styled.div`
     }
     .bio {
       /* font-size: 1.5rem; */
-      font-size: 5.2vw;
-      line-height: 1.9rem;
+      font-size: 4.7vw;
+      line-height: 1.8rem;
     }
   }
 
@@ -97,7 +99,7 @@ export const StyledBiography = styled.div`
     }
     .bio {
       /* font-size: 1.8rem; */
-      font-size: 5vw;
+      font-size: 3vw;
       line-height: 2.8rem;
     }
   }
@@ -111,8 +113,8 @@ export const StyledBiography = styled.div`
     }
     .bio {
       /* font-size: 1.5rem; */
-      font-size: 4vw;
-      line-height: 2.8rem;
+      font-size: 4.2vw;
+      line-height: 2rem;
     }
   }
 
@@ -122,8 +124,8 @@ export const StyledBiography = styled.div`
     }
     .bio {
       /* font-size: 2.3rem; */
-      font-size: 4vw;
-      line-height: 3rem;
+      font-size: 3.5vw;
+      line-height: 2.5rem;
     }
   }
   /* @media (min-width: 750px) and (max-height: 750px) {
@@ -139,9 +141,9 @@ export const StyledBiography = styled.div`
 
   /* Ipad Pro */
 
-  @media (min-width: 1020px) and (max-height: 1370px) {
+  @media (min-width: 1024px) and (min-height: 1366px) {
     .bio-content {
-      padding-top: 2%;
+      padding-top: 10%;
     }
     .bioHeader {
       font-size: 4rem;
@@ -149,9 +151,9 @@ export const StyledBiography = styled.div`
     }
     .bio {
       /* font-size: 3rem; */
-      font-size: 3vw;
-      line-height: 3.5rem;
-      text-align: left;
+      font-size: 4vw;
+      line-height: 3.2rem;
+      text-align: center;
     }
   }
 
@@ -162,8 +164,8 @@ export const StyledBiography = styled.div`
     }
     .bio {
       /* font-size: 3rem; */
-      font-size: 3vh;
-      line-height: 4rem;
+      font-size: 2.5vh;
+      line-height: 3.2rem;
     }
   }
 
@@ -176,9 +178,9 @@ export const StyledBiography = styled.div`
     .bio {
       text-align: left;
       /* font-size: 2.8rem; */
-      font-size: 5vh;
+      font-size: 3.5vh;
 
-      line-height: 3.5rem;
+      line-height: 3.2rem;
     }
   }
 
