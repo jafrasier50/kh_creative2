@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "kh_creative",
+    "username": null,
     "password": "bubblegum",
     "database": "art",
     "host": "127.0.0.1",
