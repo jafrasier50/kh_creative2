@@ -56,7 +56,7 @@ class App extends Component {
               component={PiecesDashboardView}
             />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/" component={this.visitorView} />
+            <Route exact path="*" component={this.visitorView} />
           </main>
         </div>
       </Router>
