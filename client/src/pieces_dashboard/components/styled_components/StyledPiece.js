@@ -47,7 +47,7 @@ export const StyledPiece = styled.div`
   p {
     font-family: 'Source Code Pro', monospace;
     grid-area: description;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin: 0;
     align-self: start;
   }
@@ -121,7 +121,7 @@ export const StyledPiece = styled.div`
       max-height: 400px;
     }
     p {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -142,7 +142,7 @@ export const StyledPiece = styled.div`
 
     }    
     p {
-      font-size: 3vh;
+      font-size: 2.8vh;
     }  
     }
   }
@@ -201,7 +201,7 @@ export const StyledPiece = styled.div`
     }
 
     p{
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom:2rem;
     }
     .pieceStats{
