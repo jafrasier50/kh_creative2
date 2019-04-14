@@ -44,7 +44,6 @@ class PiecesDashboard extends Component {
     });
 
     this.getPieces();
-    console.log("gettingPieces");
   };
 
   handleChange = e => {
@@ -63,7 +62,6 @@ class PiecesDashboard extends Component {
       pieces.forEach(piece => {
         renderedPiecesArray.push(this.renderPiece(piece));
       });
-      console.log("got Pieces!");
       this.setState({ renderedPieces: renderedPiecesArray });
     }
   };

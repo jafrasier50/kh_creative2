@@ -8,7 +8,6 @@ class DrawerToggle extends Component {
         <button
           className="toggle-button"
           onClick={() => {
-            console.log(this.props.click);
             this.props.click();
           }}
         >

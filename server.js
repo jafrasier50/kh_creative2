@@ -7,7 +7,6 @@ const port = process.env.PORT || 5000;
 if (process.env.NODE_ENV == "development") {
   require("dotenv").config();
 }
-console.log(process.env.NODE_ENV);
 // this imports the sequelize models from the models folder
 const models = require("./models");
 
@@ -46,7 +45,7 @@ app.get("/api/pieces", async function(req, res, next) {
   });
 });
 
-app.use((req, res, next) => {
+const authenticate = (req, res, next) => {
   // -----------------------------------------------------------------------
   // authentication middleware
 
@@ -54,7 +53,6 @@ app.use((req, res, next) => {
 
   // parse login and piecesPass from headers
   const b64auth = (req.headers.authorization || "").split(" ")[1] || "";
-
   // Verify login and piecesPass are set and correct
   if (!b64auth || b64auth !== auth.piecesPass) {
     //   res.set('WWW-Authenticate', 'Basic realm="401"') // change this
@@ -65,9 +63,9 @@ app.use((req, res, next) => {
   // -----------------------------------------------------------------------
   // Access granted...
   next();
-});
+};
 
-app.get("/api/auth", function(req, res, next) {
+app.get("/api/auth", authenticate, function(req, res, next) {
   res.json({ secret: process.env.PIECES_PASS });
 });
 
@@ -76,7 +74,7 @@ app.get("/api/auth", function(req, res, next) {
 //the result object to the variable where the await was called. Then it continues on with the rest of the function.
 
 // creates on "piece", uses async/await syntax for the sequelize query. Returns result to front end as json
-app.post("/api/piece", async function(req, res, next) {
+app.post("/api/piece", authenticate, async function(req, res, next) {
   const {
     title,
     description,
@@ -100,7 +98,7 @@ app.post("/api/piece", async function(req, res, next) {
   });
 });
 
-app.put("/api/piece/:id", async function(req, res, next) {
+app.put("/api/piece/:id", authenticate, async function(req, res, next) {
   var result = await piece.update(req.body, {
     where: { id: req.params.id },
     fields: Object.keys(req.body),
@@ -123,7 +121,7 @@ app.put("/api/piece/:id", async function(req, res, next) {
   }
 });
 
-app.delete("/api/piece/:id", async function(req, res, next) {
+app.delete("/api/piece/:id", authenticate, async function(req, res, next) {
   var numberOfDestroyed = await piece.destroy({ where: { id: req.params.id } });
 
   if (numberOfDestroyed == 1) {

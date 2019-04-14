@@ -107,7 +107,6 @@ class EditPiece extends Component {
 
       if (result.data && result.data.updated) {
         this.props.onUpdate(result.data.updated);
-        console.log({ ...result.data.updated });
         this.setState({ ...result.data.updated });
       }
     }
@@ -125,8 +124,6 @@ class EditPiece extends Component {
         this.props.onDelete();
         this.setState({ deleted: true });
       }
-
-      console.log(result);
     }
   };
 
