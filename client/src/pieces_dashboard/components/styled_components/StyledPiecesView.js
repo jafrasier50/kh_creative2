@@ -14,7 +14,7 @@ export const StyledPiecesView = styled.div`
     overflow-x: auto;
   }
   .piece-container::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
   }
 
   @media (min-width: 360px) {
