@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./navbar/components/Navbar";
 import PiecesView from "./all_pieces/components/PiecesView";
@@ -42,22 +42,23 @@ class App extends Component {
       <Router>
         <div className="App" style={{ height: "100%" }}>
           <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
-
           <SideDrawer
             show={this.state.sideDrawerOpen}
             closeDrawerAfterLinkIsClicked={this.closeDrawerAfterLinkIsClicked}
           />
           {backdrop}
-          <main style={{ marginTop: "56px" }}>
-            <Route exact path="/home" component={this.visitorView} />
-            <Route
-              exact
-              path="/pieces_dashboard"
-              component={PiecesDashboardView}
-            />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="*" component={this.visitorView} />
-          </main>
+          <div style={{ marginTop: "56px" }}>
+            <Switch>
+              <Route exact path="/home" component={this.visitorView} />
+              <Route
+                exact
+                path="/pieces_dashboard"
+                component={PiecesDashboardView}
+              />
+              <Route exact path="/login" component={Login} />
+              <Route component={this.visitorView} />
+            </Switch>
+          </div>
         </div>
       </Router>
     );
@@ -86,3 +87,27 @@ class App extends Component {
 }
 
 export default App;
+
+{
+  /* <Router>
+        <div className="App" style={{ height: "100%" }}>
+          <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
+
+          <SideDrawer
+            show={this.state.sideDrawerOpen}
+            closeDrawerAfterLinkIsClicked={this.closeDrawerAfterLinkIsClicked}
+          />
+          {backdrop}
+          <main style={{ marginTop: "56px" }}>
+            <Route exact path="/home" component={this.visitorView} />
+            <Route
+              exact
+              path="/pieces_dashboard"
+              component={PiecesDashboardView}
+            />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="*" component={this.visitorView} />
+          </main>
+        </div>
+      </Router> */
+}
