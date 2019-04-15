@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Spinner } from "../../spinner/spinner";
 import Piece from "../../pieces_dashboard/components/Piece";
 import { StyledPiecesView } from "../../pieces_dashboard/components/styled_components/StyledPiecesView";
 import { StyledRenderedPieces } from "../../pieces_dashboard/components/styled_components/StyledRenderedPieces";
@@ -9,7 +10,8 @@ class PiecesView extends Component {
     super();
     this.getPieces();
     this.state = {
-      renderedPieces: []
+      renderedPieces: [],
+      loading: true
     };
   }
 
@@ -22,7 +24,7 @@ class PiecesView extends Component {
       pieces.forEach(piece => {
         renderedPiecesArray.push(this.renderPiece(piece));
       });
-      this.setState({ renderedPieces: renderedPiecesArray });
+      this.setState({ renderedPieces: renderedPiecesArray, loading: false });
     }
   };
 
@@ -40,6 +42,7 @@ class PiecesView extends Component {
   render() {
     return (
       <StyledPiecesView className="Styled-Pieces-View">
+        {this.state.loading ? <Spinner /> : null}
         <section className="piece-container">
           <StyledRenderedPieces className="pieces">
             {this.state.renderedPieces}

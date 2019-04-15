@@ -2,31 +2,118 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+@keyframes grow-and-fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translatez(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translatez(0);
+  }
+}
+@keyframes pulsing-fade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0;
+  }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.loader-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+.triangle {
+  animation: grow-and-fade 2000ms linear infinite;
+  height: 150px;
+  left: 0;
+  opacity: 0;
+  width: 150px;
+  position: absolute;
+  top: 0%;
+  transform: translatez(0);
+  transform-origin: 50% 60%;
+  will-change: opacity, transform;
+}
+.triangle-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 150px;
+  width: 150px;
+}
+.triangle-loading {
+  animation: pulsing-fade 6000ms ease infinite;
   color: white;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  left: 50%;
+  letter-spacing: 8px;
+  margin-left: 4px;
+  margin-top: 10px;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  transform: translate3d(-50%, -50%, 0);
+  text-transform: uppercase;
 }
-
-.App-link {
-  color: #61dafb;
+.triangle-svg {
+  margin-top: -20px;
+  opacity: 0.5;
+  overflow: visible;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.triangle-polygon {
+  stroke-width: 5px;
+}
+.triangle-1 {
+  animation-delay: 0ms;
+}
+.triangle-1 .triangle-polygon {
+  stroke: hotpink;
+}
+.triangle-2 {
+  animation-delay: 400ms;
+}
+.triangle-2 .triangle-polygon {
+  stroke: aqua;
+}
+.triangle-3 {
+  animation-delay: 800ms;
+}
+.triangle-3 .triangle-polygon {
+  stroke: cornflowerblue;
+}
+.triangle-4 {
+  animation-delay: 1200ms;
+}
+.triangle-4 .triangle-polygon {
+  stroke: yellow;
+}
+.triangle-5 {
+  animation-delay: 1600ms;
+}
+.triangle-5 .triangle-polygon {
+  stroke: white;
 }
