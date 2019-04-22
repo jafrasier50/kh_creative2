@@ -48,6 +48,7 @@ class Login extends Component {
                 <br /> ( ͡° ͜ʖ ͡°)
               </p>
               <input
+                type="password"
                 name="pieces_pass"
                 placeholder="Enter the Secret Pass..."
               />
